@@ -10,6 +10,6 @@
 ### Who am I?
 
 > Laurent Grangeau<br />
-> Cloud Solution Architect @ Sogeti
+> Cloud Solution Architect @ Google
 
-<img src="https://pbs.twimg.com/profile_images/1007639151812988929/ln3iUxxF_400x400.jpg" width="200px" />
+<img src="https://pbs.twimg.com/profile_images/1884910280896913408/20LMAukE_400x400.jpg" width="200px" />
