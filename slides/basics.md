@@ -16,7 +16,7 @@
 | Layer # | Name | Description |
 |---|---|---|
 | 5 | Session layer | Maintains connections and is responsible for controlling ports and sessions |
-| 4 | Transport layer | Transmits data using transmission protocols including TCP and UDP |
+| 4 | Transport layer | Transmits data using transmission protocols including `TCP` and `UDP` |
 
 ----
 
@@ -34,10 +34,10 @@
 
 | Layer # | Name | Example protocols |
 |---|---|---|
-| 7 | Application layer | HTTP, FTP, DNS, SNMP |
-| 6 | Presentation layer | SSL, TLS |
-| 5 | Session layer | NetBIOS, PPTP |
-| 4 | Transport layer | TCP, UDP |
+| 7 | Application layer | `HTTP`, `FTP`, `DNS`, `SNMP` |
+| 6 | Presentation layer | `SSL`, `TLS` |
+| 5 | Session layer | `NetBIOS`, `PPTP` |
+| 4 | Transport layer | `TCP`, `UDP` |
 
 ----
 
@@ -45,9 +45,9 @@
 
 | Layer # | Name | Example protocols |
 |---|---|---|
-| 3 | Network layer | IP, ARP, ICMP, IPSec |
-| 2 | Data link layer | PPP, ATM, Ethernet |
-| 1 | Physical layer | Ethernet, USB, Bluetooth, IEEE 802.11 |
+| 3 | Network layer | `IP`, `ARP`, `ICMP`, `IPSec` |
+| 2 | Data link layer | `PPP`, `ATM`, `Ethernet` |
+| 1 | Physical layer | `Ethernet`, `USB`, `Bluetooth`, `IEEE 802.11` |
 
 ----
 
@@ -55,16 +55,16 @@
 
 | Layer # | Name | Example protocols |
 |---|---|---|
-| 4 | Application layer | HTTP, FTP, DNS, SNMP, SQL, SMB, SSL, TLS |
-| 3 | Transport layer | TCP, UDP |
-| 2 | Network layer | IP, ARP, ICMP, IPSec |
-| 1 | Network interface layer | Ethernet, USB, Bluetooth, IEEE 802.11 |
+| 4 | Application layer | `HTTP`, `FTP`, `DNS`, `SNMP`, `SQL`, `SMB`, `SSL`, `TLS` |
+| 3 | Transport layer | `TCP`, `UDP` |
+| 2 | Network layer | `IP`, `ARP`, `ICMP`, `IPSec` |
+| 1 | Network interface layer | `Ethernet`, `USB`, `Bluetooth`, `IEEE 802.11` |
 
 ----
 
 ### TCP
 
-- TCP stands for Transmission Control Protocol
+- **TCP** stands for **Transmission Control Protocol**
 - TCP provides reliable, ordered, and error-checked delivery of a stream of octets (bytes) between applications running on hosts communicating via an IP network
 - TCP is connection-oriented, and a connection between client and server is established before data can be sent
 
@@ -73,85 +73,85 @@
 ### 3-way handshake
 
 - 3 steps to initiate a connection
-  - SYN (synchronized)
-  - SYN/ACK (synchronize / acknowledge)
-  - ACK (acknowleged)
+  - `SYN` (synchronized)
+  - `SYN/ACK` (synchronize / acknowledge)
+  - `ACK` (acknowleged)
 
-<img src="img/syn-ack.png" width="40%" />
+<img src="img/syn-ack.png" alt="3-way handshake" />
 
 ----
 
 ### UDP
 
-- UDP stands for User Datagram Protocol
+- **UDP** stands for **User Datagram Protocol**
 - Uses a simple connectionless communication model with a minimum of protocol mechanisms
 
 ----
 
 ### IPv4
 
-- 32-bits address
-- From 0.0.0.0 to 255.255.255.255
+- `32-bits` address
+- From `0.0.0.0` to `255.255.255.255`
 - Associated with a subnet mask to be able to identify a machine and the network associated with this machine
 - For example
-  - 192.168.0.1 is the IP address
-  - 255.255.255.0 is the mask address
+  - `192.168.0.1` is the IP address
+  - `255.255.255.0` is the mask address
 
 ----
 
 ### Subnets
 
 - Logical division of an IP network
-- Routing prefix expressed in CIDR notation
-- Followed by a / and ending with the bit-length of the prefix
+- Routing prefix expressed in **CIDR** notation
+- Followed by a `/` and ending with the bit-length of the prefix
 - For example
-  - 198.51.100.0/24
-  - Addresses from 198.51.100.0 to 198.51.100.255 belongs to this network
+  - `198.51.100.0/24`
+  - Addresses from `198.51.100.0` to `198.51.100.255` belongs to this network
 
 ----
 
 ### CIDR
 
-Classless Inter-Domain Routing
+<p class="cidr-subtitle">Classless Inter-Domain Routing</p>
 
-- Class A : 10.0.0.0/8
-  - 16 777 216 IPs available
-- Class B : 172.16.0.0/16
-  - 1 048 576 IPs available
-- Class C : 192.168.0.0/24
-  - 65 536 IPs available
+- **Class A** : `10.0.0.0/8`
+  - `16 777 216` IPs available
+- **Class B** : `172.16.0.0/16`
+  - `1 048 576` IPs available
+- **Class C** : `192.168.0.0/24`
+  - `65 536` IPs available
 
 ----
 
 ### CIDR
 
-Classless Inter-Domain Routing
+<p class="cidr-subtitle">Classless Inter-Domain Routing</p>
 
-- Class D : 224.0.0.0/32
+- **Class D** : `224.0.0.0/32`
   - Multicast
-- Class E : 240.0.0.0/32
+- **Class E** : `240.0.0.0/32`
   - Reserved
 
 ----
 
 ### Static vs Dynamic (DHCP)
 
-- The Dynamic Host Configuration Protocol (DHCP) is a network management protocol used on Internet Protocol (IP) networks for automatically assigning IP addresses and other communication parameters to devices connected to the network using a client–server architecture
+- The **Dynamic Host Configuration Protocol (DHCP)** is a network management protocol used on Internet Protocol (IP) networks for automatically assigning IP addresses and other communication parameters to devices connected to the network using a client–server architecture
 
 ----
 
 ### Static vs Dynamic (DHCP)
 
-<img src="img/dhcp.png" width="45%" />
+<img src="img/dhcp.png" alt="DHCP" />
 
 ----
 
 ### Ports
 
-- A port is a communication endpoint
-- A port number is always associated with an IP address of a host and the type of transport protocol used for communication (TCP or UDP)
+- A **port** is a communication endpoint
+- A port number is always associated with an IP address of a host and the type of transport protocol used for communication (`TCP` or `UDP`)
 - Specific port numbers are reserved to identify specific services
-- Port numbers lower than 1024 identify the historically most commonly used services
+- Port numbers lower than `1024` identify the historically most commonly used services
 - Higher-numbered ports are available for general use by applications
 
 ----
@@ -160,10 +160,10 @@ Classless Inter-Domain Routing
 
 | Number | Assignment |
 |---|---|
-| 20 | File Transfer Protocol (FTP) Data Transfer |
-| 21 | File Transfer Protocol (FTP) Command Control |
-| 22 | Secure Shell (SSH) Secure Login |
-| 25 | Simple Mail Transfer Protocol (SMTP) email delivery |
+| 20 | File Transfer Protocol (`FTP`) Data Transfer |
+| 21 | File Transfer Protocol (`FTP`) Command Control |
+| 22 | Secure Shell (`SSH`) Secure Login |
+| 25 | Simple Mail Transfer Protocol (`SMTP`) email delivery |
 
 ----
 
@@ -171,29 +171,29 @@ Classless Inter-Domain Routing
 
 | Number | Assignment |
 |---|---|
-| 53 | Domain Name System (DNS) service |
-| 80 | Hypertext Transfer Protocol (HTTP) used in the World Wide Web |
-| 443 | HTTP Secure (HTTPS) HTTP over TLS/SSL |
+| 53 | Domain Name System (`DNS`) service |
+| 80 | Hypertext Transfer Protocol (`HTTP`) used in the World Wide Web |
+| 443 | HTTP Secure (`HTTPS`) HTTP over `TLS/SSL` |
 
 ----
 
 ### Firewalls
 
-- A firewall is a network security system that monitors and controls incoming and outgoing network traffic based on predetermined security rules
-- Operates on layer 4 of the OSI model
+- A **firewall** is a network security system that monitors and controls incoming and outgoing network traffic based on predetermined security rules
+- Operates on `layer 4` of the OSI model
 
 ----
 
 ### Firewalls
 
-- Packet filter
+- **Packet filter**
   - The first reported type of network firewall is called a packet filter, which inspect packets transferred between computers. The firewall maintains an access control list which dictates what packets will be looked at and what action should be applied
 
 ----
 
 ### Firewalls
 
-- Connection tracking
+- **Connection tracking**
   - Second-generation firewalls perform the work of their first-generation predecessors but also maintain knowledge of specific conversations between endpoints by remembering which port number the two IP addresses are using
 
 ----
@@ -206,8 +206,8 @@ Classless Inter-Domain Routing
 
 ### DMZ
 
-- A DMZ is a physical or logical subnetwork that contains and exposes an organization's external-facing services to an untrusted, usually larger, network such as the Internet
-- Add an additional layer of security to an organization's local area network (LAN)
+- A **DMZ** is a physical or logical subnetwork that contains and exposes an organization's external-facing services to an untrusted, usually larger, network such as the Internet
+- Add an additional layer of security to an organization's local area network (`LAN`)
 
 ----
 
@@ -233,13 +233,13 @@ Classless Inter-Domain Routing
 ### DNS
 
 - For example
-  - A record : associate a DNS name to an IPv4
-  - AAAA record : associate a DNS name to an IPv6
-  - CNAME record : Alias of one name to another
-  - NS record : Delegates a DNS zone to use the given authoritative name servers
-  - MX record : Maps a domain name to a list of message transfer agents for that domain
+  - `A record` : associate a DNS name to an IPv4
+  - `AAAA record` : associate a DNS name to an IPv6
+  - `CNAME record` : Alias of one name to another
+  - `NS record` : Delegates a DNS zone to use the given authoritative name servers
+  - `MX record` : Maps a domain name to a list of message transfer agents for that domain
 
-https://en.wikipedia.org/wiki/List_of_DNS_record_types
+<p class="ref-link"><a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types" target="_blank">https://en.wikipedia.org/wiki/List_of_DNS_record_types</a></p>
 
 ----
 
@@ -248,22 +248,22 @@ https://en.wikipedia.org/wiki/List_of_DNS_record_types
 - **Network address translation (NAT)** is a method of mapping an IP address space into another
 - One Internet-routable IP address of a NAT gateway can be used for an entire private network
 
-<img src="img/nat.jpg" width="70%" />
+<img src="img/nat.jpg" alt="NAT" />
 
 ----
 
 ### VPN / MPLS
 
-- A virtual private network (VPN) extends a private network across a public network and enables users to send and receive data across shared or public networks
+- A **virtual private network (VPN)** extends a private network across a public network and enables users to send and receive data across shared or public networks
 - The benefits of a VPN include increases in functionality, security, and management of the private network
-- Operates on layer 2 or 3
+- Operates on `layer 2` or `3`
 
 ----
 
 ### VPN / MPLS
 
-- Multi-Protocol Label Switching (MPLS) often overlays VPNs, often with quality-of-service control over a trusted delivery network
-- L2TP which is a standards-based replacement, and a compromise taking the good features from each, for two proprietary VPN protocols
+- **Multi-Protocol Label Switching (MPLS)** often overlays VPNs, often with quality-of-service control over a trusted delivery network
+- `L2TP` which is a standards-based replacement, and a compromise taking the good features from each, for two proprietary VPN protocols
 
 ----
 
@@ -275,13 +275,13 @@ https://en.wikipedia.org/wiki/List_of_DNS_record_types
 
 ### Router
 
-- A router is a networking device that forwards data packets between computer networks
+- A **router** is a networking device that forwards data packets between computer networks
 - A router is connected to two or more data lines from different IP networks
 
 ----
 
 ### Routing (BGP)
 
-- Border Gateway Protocol (BGP) is a standardized exterior gateway protocol designed to exchange routing and reachability information among autonomous systems (AS) on the Internet
+- **Border Gateway Protocol (BGP)** is a standardized exterior gateway protocol designed to exchange routing and reachability information among autonomous systems (`AS`) on the Internet
 
 ![BGP](img/bgp.png)
