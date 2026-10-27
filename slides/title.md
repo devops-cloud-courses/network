@@ -24,5 +24,5 @@
     <strong>Laurent Grangeau</strong><br />
     Cloud Solution Architect @ Google
   </blockquote>
-  <img class="avatar" src="https://pbs.twimg.com/profile_images/1884910280896913408/20LMAukE_400x400.jpg" alt="Laurent Grangeau" />
+  <img class="avatar" src="img/avatar.jpg" alt="Laurent Grangeau" />
 </div>
