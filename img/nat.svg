@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 430" width="980" height="430" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="natGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
+    </linearGradient>
+    <marker id="natArrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#2563eb"/>
+    </marker>
+    <marker id="natArrowGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#059669"/>
+    </marker>
+    <filter id="natShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="980" height="430" rx="16" fill="#f8fafc"/>
+
+  <!-- Left: Private Network Hosts -->
+  <g filter="url(#natShadow)">
+    <rect x="24" y="105" width="160" height="62" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+    <text x="104" y="132" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Client Host A</text>
+    <text x="104" y="152" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#2563eb">192.168.100.3</text>
+
+    <rect x="24" y="185" width="160" height="58" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="104" y="211" text-anchor="middle" font-size="13" font-weight="600" fill="#334155">Client Host B</text>
+    <text x="104" y="230" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" fill="#64748b">192.168.100.4</text>
+
+    <rect x="24" y="261" width="160" height="58" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="104" y="287" text-anchor="middle" font-size="13" font-weight="600" fill="#334155">Client Host C</text>
+    <text x="104" y="306" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" fill="#64748b">192.168.100.5</text>
+  </g>
+
+  <!-- Private LAN Bus to NAT Gateway -->
+  <path d="M184 136 H212 V290 H184 M184 214 H212" fill="none" stroke="#94a3b8" stroke-width="2.5"/>
+  <line x1="212" y1="290" x2="418" y2="290" stroke="#2563eb" stroke-width="3.5" marker-end="url(#natArrowBlue)"/>
+
+  <!-- Public WAN Link from NAT Gateway to Web Server -->
+  <line x1="562" y1="290" x2="778" y2="290" stroke="#059669" stroke-width="3.5" marker-end="url(#natArrowGreen)"/>
+
+  <!-- Step 1 Packet Card -->
+  <g filter="url(#natShadow)">
+    <rect x="218" y="160" width="190" height="98" rx="12" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+    <rect x="230" y="170" width="64" height="22" rx="6" fill="#2563eb"/>
+    <text x="262" y="185" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">STEP 1</text>
+    <text x="302" y="185" font-size="11" font-weight="700" fill="#1e40af">Outbound Frame</text>
+    <text x="230" y="212" font-size="11.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#1d4ed8">Src: 192.168.100.3:3855</text>
+    <text x="230" y="232" font-size="11.5" font-family="'JetBrains Mono', monospace" fill="#475569">Dst: 93.184.216.34:443</text>
+    <text x="230" y="248" font-size="10.5" fill="#64748b">(Private source IP)</text>
+  </g>
+
+  <!-- Step 2: NAT Translation Table at Top Center -->
+  <g filter="url(#natShadow)">
+    <rect x="290" y="18" width="400" height="118" rx="14" fill="#ffffff" stroke="#c7d2fe" stroke-width="2"/>
+    <rect x="290" y="18" width="400" height="36" rx="14" fill="url(#natGrad)"/>
+    <text x="490" y="41" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff">STEP 2 — NAT Translation Table</text>
+
+    <!-- Table Headers -->
+    <text x="395" y="74" text-anchor="middle" font-size="12" font-weight="700" fill="#334155">Private IP &amp; Port (LAN)</text>
+    <text x="585" y="74" text-anchor="middle" font-size="12" font-weight="700" fill="#334155">Public IP &amp; Port (WAN)</text>
+    <line x1="306" y1="84" x2="674" y2="84" stroke="#e2e8f0" stroke-width="1.5"/>
+    <line x1="490" y1="56" x2="490" y2="126" stroke="#e2e8f0" stroke-width="1.5"/>
+
+    <!-- Active Row -->
+    <rect x="306" y="90" width="176" height="32" rx="6" fill="#eff6ff"/>
+    <text x="394" y="111" text-anchor="middle" font-size="12.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#1d4ed8">192.168.100.3 : 3855</text>
+
+    <rect x="498" y="90" width="176" height="32" rx="6" fill="#ecfdf5"/>
+    <text x="586" y="111" text-anchor="middle" font-size="12.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#047857">145.12.131.7 : 6282</text>
+  </g>
+
+  <!-- Connector Cone from NAT Gateway to Table -->
+  <path d="M455 245 L390 138 M525 245 L590 138" stroke="#a5b4fc" stroke-width="2" stroke-dasharray="5 4"/>
+
+  <!-- Center: NAT Router / Gateway -->
+  <g filter="url(#natShadow)">
+    <rect x="422" y="245" width="136" height="90" rx="16" fill="url(#natGrad)" stroke="#ffffff" stroke-width="3"/>
+    <text x="490" y="284" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">NAT Gateway</text>
+    <text x="490" y="305" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" fill="#e0e7ff">Router / Firewall</text>
+  </g>
+
+  <!-- Gateway Interface Labels -->
+  <rect x="315" y="352" width="165" height="52" rx="10" fill="#ffffff" stroke="#bfdbfe"/>
+  <text x="397" y="373" text-anchor="middle" font-size="11" font-weight="700" fill="#475569">Default Gateway (LAN)</text>
+  <text x="397" y="392" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#2563eb">192.168.100.1</text>
+
+  <rect x="500" y="352" width="165" height="52" rx="10" fill="#ffffff" stroke="#6ee7b7"/>
+  <text x="582" y="373" text-anchor="middle" font-size="11" font-weight="700" fill="#475569">Public IP Address (WAN)</text>
+  <text x="582" y="392" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#059669">145.12.131.7</text>
+
+  <!-- Step 3 Packet Card -->
+  <g filter="url(#natShadow)">
+    <rect x="572" y="160" width="190" height="98" rx="12" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="1.5"/>
+    <rect x="584" y="170" width="64" height="22" rx="6" fill="#059669"/>
+    <text x="616" y="185" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">STEP 3</text>
+    <text x="656" y="185" font-size="11" font-weight="700" fill="#065f46">Translated</text>
+    <text x="584" y="212" font-size="11.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#047857">Src: 145.12.131.7:6282</text>
+    <text x="584" y="232" font-size="11.5" font-family="'JetBrains Mono', monospace" fill="#475569">Dst: 93.184.216.34:443</text>
+    <text x="584" y="248" font-size="10.5" fill="#065f46">(Routable public IP)</text>
+  </g>
+
+  <!-- Right: Public Web Server -->
+  <g filter="url(#natShadow)">
+    <rect x="786" y="232" width="170" height="116" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <circle cx="871" cy="268" r="20" fill="#eff6ff"/>
+    <text x="871" y="273" text-anchor="middle" font-size="12" font-weight="800" fill="#2563eb">WEB</text>
+    <text x="871" y="308" text-anchor="middle" font-size="14" font-weight="800" fill="#0f172a">Public Server</text>
+    <text x="871" y="328" text-anchor="middle" font-size="11.5" font-family="'JetBrains Mono', monospace" fill="#64748b">93.184.216.34:443</text>
+  </g>
+</svg>

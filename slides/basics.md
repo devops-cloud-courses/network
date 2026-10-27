@@ -77,7 +77,7 @@
   - `SYN/ACK` (synchronize / acknowledge)
   - `ACK` (acknowledged)
 
-<img src="img/syn-ack.png" alt="3-way handshake" />
+<img src="img/syn-ack.svg" alt="3-way handshake" />
 
 ----
 
@@ -142,7 +142,7 @@
 
 ### Static vs Dynamic (DHCP)
 
-<img src="img/dhcp.png" alt="DHCP" />
+<img src="img/dhcp.svg" alt="DHCP" />
 
 ----
 
@@ -200,7 +200,7 @@
 
 ### Firewalls
 
-![Firewall](img/firewall.png)
+![Firewall](img/firewall.svg)
 
 ----
 
@@ -213,13 +213,13 @@
 
 ### DMZ: Single firewall
 
-![Single FW](img/single-fw.png)
+![Single FW](img/single-fw.svg)
 
 ----
 
 ### DMZ: Dual firewalls
 
-![Dual FW](img/dual-fw.png)
+![Dual FW](img/dual-fw.svg)
 
 ----
 
@@ -248,7 +248,7 @@
 - **Network address translation (NAT)** is a method of mapping an IP address space into another
 - One Internet-routable IP address of a NAT gateway can be used for an entire private network
 
-<img src="img/nat.jpg" alt="NAT" />
+<img src="img/nat.svg" alt="NAT" />
 
 ----
 
@@ -269,7 +269,7 @@
 
 ### VPN / MPLS
 
-![VPN](img/vpn.png)
+![VPN](img/vpn.svg)
 
 ----
 
@@ -284,4 +284,4 @@
 
 - **Border Gateway Protocol (BGP)** is a standardized exterior gateway protocol designed to exchange routing and reachability information among autonomous systems (`AS`) on the Internet
 
-![BGP](img/bgp.png)
+![BGP](img/bgp.svg)

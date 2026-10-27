@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" width="900" height="420" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="clientGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="serverGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#3730a3"/>
+    </linearGradient>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrowIndigo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#4f46e5"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#059669"/>
+    </marker>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="420" rx="16" fill="#f8fafc"/>
+
+  <!-- Lifelines -->
+  <line x1="190" y1="105" x2="190" y2="390" stroke="#cbd5e1" stroke-width="3" stroke-dasharray="8 6"/>
+  <line x1="710" y1="105" x2="710" y2="390" stroke="#cbd5e1" stroke-width="3" stroke-dasharray="8 6"/>
+
+  <!-- Client Node Card -->
+  <g filter="url(#cardShadow)">
+    <rect x="100" y="24" width="180" height="74" rx="14" fill="#ffffff" stroke="#bfdbfe" stroke-width="2"/>
+    <rect x="116" y="39" width="44" height="44" rx="10" fill="url(#clientGrad)"/>
+    <!-- Laptop Icon -->
+    <rect x="125" y="48" width="26" height="17" rx="2" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <path d="M121 69 H155" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="174" y="57" font-size="16" font-weight="700" fill="#0f172a">Client</text>
+    <text x="174" y="76" font-size="12" font-family="'JetBrains Mono', monospace" fill="#64748b">Initiator</text>
+  </g>
+
+  <!-- Server Node Card -->
+  <g filter="url(#cardShadow)">
+    <rect x="620" y="24" width="180" height="74" rx="14" fill="#ffffff" stroke="#c7d2fe" stroke-width="2"/>
+    <rect x="636" y="39" width="44" height="44" rx="10" fill="url(#serverGrad)"/>
+    <!-- Server Stack Icon -->
+    <rect x="646" y="47" width="24" height="11" rx="2" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <circle cx="651" cy="52.5" r="1.5" fill="#ffffff"/>
+    <rect x="646" y="63" width="24" height="11" rx="2" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <circle cx="651" cy="68.5" r="1.5" fill="#ffffff"/>
+    <text x="694" y="57" font-size="16" font-weight="700" fill="#0f172a">Server</text>
+    <text x="694" y="76" font-size="12" font-family="'JetBrains Mono', monospace" fill="#64748b">Listener :443</text>
+  </g>
+
+  <!-- State Badges on Left & Right -->
+  <rect x="42" y="124" width="128" height="28" rx="6" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="106" y="143" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="600" fill="#1d4ed8">SYN_SENT</text>
+
+  <rect x="730" y="176" width="132" height="28" rx="6" fill="#eef2ff" stroke="#c7d2fe"/>
+  <text x="796" y="195" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="600" fill="#4338ca">SYN_RCVD</text>
+
+  <rect x="42" y="294" width="128" height="28" rx="6" fill="#ecfdf5" stroke="#a7f3d0"/>
+  <text x="106" y="313" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#047857">ESTABLISHED</text>
+
+  <rect x="730" y="336" width="132" height="28" rx="6" fill="#ecfdf5" stroke="#a7f3d0"/>
+  <text x="796" y="355" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#047857">ESTABLISHED</text>
+
+  <!-- Step 1: SYN -->
+  <line x1="196" y1="138" x2="698" y2="186" stroke="#2563eb" stroke-width="3" marker-end="url(#arrowBlue)"/>
+  <g filter="url(#cardShadow)">
+    <rect x="340" y="126" width="220" height="36" rx="18" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+    <circle cx="360" cy="144" r="11" fill="#2563eb"/>
+    <text x="360" y="148" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">1</text>
+    <text x="380" y="149" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#1e40af">SYN</text>
+    <text x="422" y="149" font-size="12" font-family="'JetBrains Mono', monospace" fill="#64748b">(seq = x)</text>
+  </g>
+
+  <!-- Step 2: SYN / ACK -->
+  <line x1="704" y1="220" x2="202" y2="268" stroke="#4f46e5" stroke-width="3" marker-end="url(#arrowIndigo)"/>
+  <g filter="url(#cardShadow)">
+    <rect x="305" y="210" width="290" height="36" rx="18" fill="#ffffff" stroke="#a5b4fc" stroke-width="1.5"/>
+    <circle cx="325" cy="228" r="11" fill="#4f46e5"/>
+    <text x="325" y="232" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">2</text>
+    <text x="345" y="233" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#3730a3">SYN / ACK</text>
+    <text x="432" y="233" font-size="12" font-family="'JetBrains Mono', monospace" fill="#64748b">(seq = y, ack = x+1)</text>
+  </g>
+
+  <!-- Step 3: ACK -->
+  <line x1="196" y1="304" x2="698" y2="350" stroke="#059669" stroke-width="3" marker-end="url(#arrowGreen)"/>
+  <g filter="url(#cardShadow)">
+    <rect x="315" y="294" width="270" height="36" rx="18" fill="#ffffff" stroke="#6ee7b7" stroke-width="1.5"/>
+    <circle cx="335" cy="312" r="11" fill="#059669"/>
+    <text x="335" y="316" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">3</text>
+    <text x="355" y="317" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#065f46">ACK</text>
+    <text x="396" y="317" font-size="12" font-family="'JetBrains Mono', monospace" fill="#64748b">(seq = x+1, ack = y+1)</text>
+  </g>
+
+  <!-- Endpoints Dots -->
+  <circle cx="190" cy="138" r="5" fill="#2563eb"/>
+  <circle cx="710" cy="187" r="5" fill="#2563eb"/>
+  <circle cx="710" cy="220" r="5" fill="#4f46e5"/>
+  <circle cx="190" cy="269" r="5" fill="#4f46e5"/>
+  <circle cx="190" cy="304" r="5" fill="#059669"/>
+  <circle cx="710" cy="351" r="5" fill="#059669"/>
+</svg>

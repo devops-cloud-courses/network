@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 480" width="920" height="480" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="dhcpClientGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="dhcpServerGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#5b21b6"/>
+    </linearGradient>
+    <marker id="arrBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrPurple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#7c3aed"/>
+    </marker>
+    <marker id="arrEmerald" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arrSlate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#94a3b8"/>
+    </marker>
+    <filter id="dhcpShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="920" height="480" rx="16" fill="#f8fafc"/>
+
+  <!-- Time Axis on Right -->
+  <line x1="860" y1="130" x2="860" y2="410" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+  <text x="842" y="275" text-anchor="middle" transform="rotate(-90 842 275)" font-size="13" font-weight="700" letter-spacing="2" fill="#64748b">TIME</text>
+
+  <!-- Vertical Lifelines -->
+  <line x1="190" y1="108" x2="190" y2="445" stroke="#cbd5e1" stroke-width="3" stroke-dasharray="8 6"/>
+  <line x1="690" y1="108" x2="690" y2="445" stroke="#cbd5e1" stroke-width="3" stroke-dasharray="8 6"/>
+
+  <!-- DHCP Client Card -->
+  <g filter="url(#dhcpShadow)">
+    <rect x="85" y="24" width="210" height="76" rx="14" fill="#ffffff" stroke="#bfdbfe" stroke-width="2"/>
+    <rect x="103" y="40" width="44" height="44" rx="10" fill="url(#dhcpClientGrad)"/>
+    <rect x="112" y="49" width="26" height="17" rx="2" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <path d="M108 70 H142" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="160" y="57" font-size="16" font-weight="700" fill="#0f172a">DHCP Client</text>
+    <text x="160" y="76" font-size="12" font-family="'JetBrains Mono', monospace" fill="#64748b">0.0.0.0 (Unconfigured)</text>
+  </g>
+
+  <!-- DHCP Server Card -->
+  <g filter="url(#dhcpShadow)">
+    <rect x="585" y="24" width="210" height="76" rx="14" fill="#ffffff" stroke="#ddd6fe" stroke-width="2"/>
+    <rect x="603" y="40" width="44" height="44" rx="10" fill="url(#dhcpServerGrad)"/>
+    <rect x="613" y="48" width="24" height="11" rx="2" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <circle cx="618" cy="53.5" r="1.5" fill="#ffffff"/>
+    <rect x="613" y="64" width="24" height="11" rx="2" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <circle cx="618" cy="69.5" r="1.5" fill="#ffffff"/>
+    <text x="660" y="57" font-size="16" font-weight="700" fill="#0f172a">DHCP Server</text>
+    <text x="660" y="76" font-size="12" font-family="'JetBrains Mono', monospace" fill="#64748b">Pool: 192.168.1.0/24</text>
+  </g>
+
+  <!-- 1. DISCOVER -->
+  <line x1="196" y1="132" x2="678" y2="172" stroke="#2563eb" stroke-width="3" marker-end="url(#arrBlue)"/>
+  <g filter="url(#dhcpShadow)">
+    <rect x="295" y="118" width="290" height="40" rx="20" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+    <circle cx="317" cy="138" r="12" fill="#2563eb"/>
+    <text x="317" y="142" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">D</text>
+    <text x="339" y="143" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#1d4ed8">1. DISCOVERY</text>
+    <text x="454" y="143" font-size="12" fill="#64748b">Broadcast "Who has an IP?"</text>
+  </g>
+
+  <!-- 2. OFFER -->
+  <line x1="684" y1="216" x2="202" y2="256" stroke="#7c3aed" stroke-width="3" marker-end="url(#arrPurple)"/>
+  <g filter="url(#dhcpShadow)">
+    <rect x="295" y="202" width="290" height="40" rx="20" fill="#ffffff" stroke="#c4b5fd" stroke-width="1.5"/>
+    <circle cx="317" cy="222" r="12" fill="#7c3aed"/>
+    <text x="317" y="226" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">O</text>
+    <text x="339" y="227" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#5b21b6">2. OFFER</text>
+    <text x="420" y="227" font-size="12" font-family="'JetBrains Mono', monospace" fill="#64748b">Offer 192.168.1.50</text>
+  </g>
+
+  <!-- 3. REQUEST -->
+  <line x1="196" y1="300" x2="678" y2="340" stroke="#2563eb" stroke-width="3" marker-end="url(#arrBlue)"/>
+  <g filter="url(#dhcpShadow)">
+    <rect x="295" y="286" width="290" height="40" rx="20" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+    <circle cx="317" cy="306" r="12" fill="#2563eb"/>
+    <text x="317" y="310" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">R</text>
+    <text x="339" y="311" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#1d4ed8">3. REQUEST</text>
+    <text x="438" y="311" font-size="12" fill="#64748b">Request offered IP</text>
+  </g>
+
+  <!-- 4. ACKNOWLEDGE -->
+  <line x1="684" y1="384" x2="202" y2="424" stroke="#059669" stroke-width="3" marker-end="url(#arrEmerald)"/>
+  <g filter="url(#dhcpShadow)">
+    <rect x="275" y="370" width="330" height="40" rx="20" fill="#ffffff" stroke="#6ee7b7" stroke-width="1.5"/>
+    <circle cx="297" cy="390" r="12" fill="#059669"/>
+    <text x="297" y="394" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">A</text>
+    <text x="319" y="395" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#065f46">4. ACKNOWLEDGE</text>
+    <text x="470" y="395" font-size="12" fill="#64748b">Lease confirmed + Mask/GW</text>
+  </g>
+
+  <!-- Timeline Dots -->
+  <circle cx="190" cy="132" r="5" fill="#2563eb"/>
+  <circle cx="690" cy="173" r="5" fill="#2563eb"/>
+  <circle cx="690" cy="216" r="5" fill="#7c3aed"/>
+  <circle cx="190" cy="257" r="5" fill="#7c3aed"/>
+  <circle cx="190" cy="300" r="5" fill="#2563eb"/>
+  <circle cx="690" cy="341" r="5" fill="#2563eb"/>
+  <circle cx="690" cy="384" r="5" fill="#059669"/>
+  <circle cx="190" cy="425" r="5" fill="#059669"/>
+</svg>

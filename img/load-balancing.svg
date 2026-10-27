@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 460" width="940" height="460" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="lbGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
+    </linearGradient>
+    <marker id="lbArrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#2563eb"/>
+    </marker>
+    <marker id="lbArrowGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#059669"/>
+    </marker>
+    <filter id="lbShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="940" height="460" rx="16" fill="#f8fafc"/>
+
+  <!-- Left: Clients / Users -->
+  <g filter="url(#lbShadow)">
+    <rect x="30" y="65" width="165" height="90" rx="14" fill="#ffffff" stroke="#bfdbfe" stroke-width="2"/>
+    <circle cx="68" cy="110" r="20" fill="#eff6ff"/>
+    <text x="68" y="115" text-anchor="middle" font-size="12" font-weight="800" fill="#2563eb">WEB</text>
+    <text x="100" y="105" font-size="14" font-weight="800" fill="#0f172a">Web Clients</text>
+    <text x="100" y="124" font-size="11" font-family="'JetBrains Mono', monospace" fill="#64748b">HTTPS :443</text>
+
+    <rect x="30" y="185" width="165" height="90" rx="14" fill="#ffffff" stroke="#bfdbfe" stroke-width="2"/>
+    <circle cx="68" cy="230" r="20" fill="#eff6ff"/>
+    <text x="68" y="235" text-anchor="middle" font-size="12" font-weight="800" fill="#2563eb">APP</text>
+    <text x="100" y="225" font-size="14" font-weight="800" fill="#0f172a">Mobile Apps</text>
+    <text x="100" y="244" font-size="11" font-family="'JetBrains Mono', monospace" fill="#64748b">API Requests</text>
+
+    <rect x="30" y="305" width="165" height="90" rx="14" fill="#ffffff" stroke="#bfdbfe" stroke-width="2"/>
+    <circle cx="68" cy="350" r="20" fill="#eff6ff"/>
+    <text x="68" y="355" text-anchor="middle" font-size="12" font-weight="800" fill="#2563eb">IoT</text>
+    <text x="100" y="345" font-size="14" font-weight="800" fill="#0f172a">API Consumers</text>
+    <text x="100" y="364" font-size="11" font-family="'JetBrains Mono', monospace" fill="#64748b">High Concurrency</text>
+  </g>
+
+  <!-- Incoming Traffic Lines to Load Balancer -->
+  <path d="M195 110 L328 210" stroke="#2563eb" stroke-width="3" marker-end="url(#lbArrowBlue)"/>
+  <path d="M195 230 L324 230" stroke="#2563eb" stroke-width="3" marker-end="url(#lbArrowBlue)"/>
+  <path d="M195 350 L328 250" stroke="#2563eb" stroke-width="3" marker-end="url(#lbArrowBlue)"/>
+
+  <!-- Center: Load Balancer -->
+  <g filter="url(#lbShadow)">
+    <rect x="336" y="148" width="210" height="164" rx="20" fill="url(#lbGrad)" stroke="#ffffff" stroke-width="3"/>
+    <circle cx="441" cy="198" r="24" fill="#ffffff"/>
+    <!-- Split Arrows Icon inside circle -->
+    <path d="M429 198 H442 M442 198 L451 189 M442 198 L451 198 M442 198 L451 207" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="441" y="248" text-anchor="middle" font-size="17" font-weight="800" fill="#ffffff">Load Balancer</text>
+    <text x="441" y="270" text-anchor="middle" font-size="11.5" font-family="'JetBrains Mono', monospace" fill="#dbeafe">VIP: 203.0.113.10</text>
+    <text x="441" y="290" text-anchor="middle" font-size="11" fill="#bfdbfe">Health Checks &amp; Routing</text>
+  </g>
+
+  <!-- Distributed Traffic Lines to Backend Pool -->
+  <path d="M546 205 L668 95" stroke="#059669" stroke-width="3" marker-end="url(#lbArrowGreen)"/>
+  <path d="M546 230 L668 230" stroke="#059669" stroke-width="3" marker-end="url(#lbArrowGreen)"/>
+  <path d="M546 255 L668 365" stroke="#059669" stroke-width="3" marker-end="url(#lbArrowGreen)"/>
+
+  <!-- Right: Backend Compute Pool -->
+  <rect x="650" y="24" width="260" height="412" rx="20" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="780" y="52" text-anchor="middle" font-size="15" font-weight="800" fill="#065f46">Backend Server Pool (Auto-Scaled)</text>
+
+  <g filter="url(#lbShadow)">
+    <!-- Server Instance 1 -->
+    <rect x="678" y="68" width="204" height="86" rx="14" fill="#ffffff" stroke="#6ee7b7" stroke-width="2"/>
+    <circle cx="712" cy="111" r="16" fill="#d1fae5"/>
+    <circle cx="712" cy="111" r="6" fill="#059669"/>
+    <text x="740" y="102" font-size="15" font-weight="800" fill="#0f172a">Backend Instance 1</text>
+    <text x="740" y="122" font-size="11.5" font-family="'JetBrains Mono', monospace" fill="#64748b">10.0.1.11 — Healthy</text>
+    <text x="740" y="139" font-size="11" font-family="'JetBrains Mono', monospace" fill="#059669">33% Load</text>
+
+    <!-- Server Instance 2 -->
+    <rect x="678" y="187" width="204" height="86" rx="14" fill="#ffffff" stroke="#6ee7b7" stroke-width="2"/>
+    <circle cx="712" cy="230" r="16" fill="#d1fae5"/>
+    <circle cx="712" cy="230" r="6" fill="#059669"/>
+    <text x="740" y="221" font-size="15" font-weight="800" fill="#0f172a">Backend Instance 2</text>
+    <text x="740" y="241" font-size="11.5" font-family="'JetBrains Mono', monospace" fill="#64748b">10.0.1.12 — Healthy</text>
+    <text x="740" y="258" font-size="11" font-family="'JetBrains Mono', monospace" fill="#059669">34% Load</text>
+
+    <!-- Server Instance 3 -->
+    <rect x="678" y="306" width="204" height="86" rx="14" fill="#ffffff" stroke="#6ee7b7" stroke-width="2"/>
+    <circle cx="712" cy="349" r="16" fill="#d1fae5"/>
+    <circle cx="712" cy="349" r="6" fill="#059669"/>
+    <text x="740" y="340" font-size="15" font-weight="800" fill="#0f172a">Backend Instance 3</text>
+    <text x="740" y="360" font-size="11.5" font-family="'JetBrains Mono', monospace" fill="#64748b">10.0.1.13 — Healthy</text>
+    <text x="740" y="377" font-size="11" font-family="'JetBrains Mono', monospace" fill="#059669">33% Load</text>
+  </g>
+</svg>

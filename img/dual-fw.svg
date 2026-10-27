@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960" height="440" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="dfwGrad1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ea580c"/>
+      <stop offset="100%" stop-color="#dc2626"/>
+    </linearGradient>
+    <linearGradient id="dfwGrad2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <filter id="dfwShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="440" rx="16" fill="#f8fafc"/>
+
+  <!-- Horizontal Pipeline Links -->
+  <line x1="185" y1="220" x2="900" y2="220" stroke="#94a3b8" stroke-width="4"/>
+
+  <!-- 1. Router (WAN) on Far Left -->
+  <g filter="url(#dfwShadow)">
+    <rect x="28" y="150" width="160" height="140" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <circle cx="108" cy="198" r="24" fill="#0f172a"/>
+    <path d="M96 198 H120 M108 186 V210" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="108" y="248" text-anchor="middle" font-size="16" font-weight="800" fill="#0f172a">Router (WAN)</text>
+    <text x="108" y="268" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" fill="#64748b">Untrusted Internet</text>
+  </g>
+
+  <!-- 2. Perimeter / External Firewall -->
+  <g filter="url(#dfwShadow)">
+    <rect x="224" y="132" width="130" height="176" rx="16" fill="url(#dfwGrad1)" stroke="#ffffff" stroke-width="3"/>
+    <circle cx="289" cy="188" r="22" fill="#ffffff"/>
+    <path d="M289 172 L301 177 V187 C301 195 296 201 289 204 C282 201 277 195 277 187 V177 Z" fill="#dc2626"/>
+    <text x="289" y="238" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">Firewall #1</text>
+    <text x="289" y="258" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" fill="#ffedd5">External / Edge</text>
+    <text x="289" y="276" text-anchor="middle" font-size="10" fill="#fed7aa">Allows WAN → DMZ</text>
+  </g>
+
+  <!-- 3. DMZ in Center -->
+  <g filter="url(#dfwShadow)">
+    <rect x="390" y="75" width="180" height="290" rx="18" fill="#ffffff" stroke="#fcd34d" stroke-width="2"/>
+    <rect x="390" y="75" width="180" height="44" rx="18" fill="#fffbeb"/>
+    <text x="480" y="103" text-anchor="middle" font-size="16" font-weight="800" fill="#b45309">DMZ</text>
+
+    <rect x="415" y="135" width="130" height="52" rx="10" fill="#fffbeb" stroke="#fde68a"/>
+    <text x="480" y="160" text-anchor="middle" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#92400e">WWW Server</text>
+    <text x="480" y="177" text-anchor="middle" font-size="11" fill="#b45309">HTTP / HTTPS</text>
+
+    <rect x="415" y="200" width="130" height="52" rx="10" fill="#fffbeb" stroke="#fde68a"/>
+    <text x="480" y="225" text-anchor="middle" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#92400e">SMTP Server</text>
+    <text x="480" y="242" text-anchor="middle" font-size="11" fill="#b45309">Mail Relay</text>
+
+    <rect x="415" y="265" width="130" height="52" rx="10" fill="#fffbeb" stroke="#fde68a"/>
+    <text x="480" y="290" text-anchor="middle" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#92400e">DNS Server</text>
+    <text x="480" y="307" text-anchor="middle" font-size="11" fill="#b45309">Public Resolver</text>
+
+    <text x="480" y="345" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" fill="#d97706">Isolated Buffer Zone</text>
+  </g>
+
+  <!-- 4. Internal Firewall -->
+  <g filter="url(#dfwShadow)">
+    <rect x="606" y="132" width="130" height="176" rx="16" fill="url(#dfwGrad2)" stroke="#ffffff" stroke-width="3"/>
+    <circle cx="671" cy="188" r="22" fill="#ffffff"/>
+    <path d="M671 172 L683 177 V187 C683 195 678 201 671 204 C664 201 659 195 659 187 V177 Z" fill="#2563eb"/>
+    <text x="671" y="238" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">Firewall #2</text>
+    <text x="671" y="258" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" fill="#dbeafe">Internal / Core</text>
+    <text x="671" y="276" text-anchor="middle" font-size="10" fill="#bfdbfe">Protects Intranet</text>
+  </g>
+
+  <!-- 5. Intranet (LAN) on Far Right -->
+  <g filter="url(#dfwShadow)">
+    <rect x="772" y="95" width="160" height="250" rx="18" fill="#ffffff" stroke="#93c5fd" stroke-width="2"/>
+    <rect x="772" y="95" width="160" height="44" rx="18" fill="#eff6ff"/>
+    <text x="852" y="123" text-anchor="middle" font-size="16" font-weight="800" fill="#1e40af">Intranet (LAN)</text>
+
+    <rect x="794" y="158" width="116" height="64" rx="10" fill="#f8fafc" stroke="#bfdbfe"/>
+    <text x="852" y="186" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Workstations</text>
+    <text x="852" y="206" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" fill="#64748b">10.0.1.0/24</text>
+
+    <rect x="794" y="238" width="116" height="64" rx="10" fill="#f8fafc" stroke="#bfdbfe"/>
+    <text x="852" y="266" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Private DB</text>
+    <text x="852" y="286" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" fill="#059669">Strictly Protected</text>
+  </g>
+</svg>

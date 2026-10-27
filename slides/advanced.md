@@ -29,7 +29,7 @@
 
 ### Load balancing
 
-<img src="img/load-balancing.png" alt="Load balancing" />
+<img src="img/load-balancing.svg" alt="Load balancing" />
 
 ----
 

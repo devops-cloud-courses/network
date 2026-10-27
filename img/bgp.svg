@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 430" width="940" height="430" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="bgpShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="940" height="430" rx="16" fill="#f8fafc"/>
+
+  <!-- Legend at Top Right -->
+  <g filter="url(#bgpShadow)">
+    <rect x="510" y="22" width="400" height="86" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+    <line x1="534" y1="48" x2="594" y2="48" stroke="#ea580c" stroke-width="5" stroke-linecap="round"/>
+    <text x="610" y="53" font-size="13" font-weight="700" fill="#0f172a">EGP routing links (BGP)</text>
+    <text x="775" y="53" font-size="12" fill="#64748b">— Inter-AS Peering</text>
+
+    <line x1="534" y1="82" x2="594" y2="82" stroke="#3b82f6" stroke-width="2.5" stroke-dasharray="6 4"/>
+    <text x="610" y="87" font-size="13" font-weight="700" fill="#0f172a">IGP routing links</text>
+    <text x="730" y="87" font-size="12" fill="#64748b">— Intra-AS (OSPF / IS-IS)</text>
+  </g>
+
+  <!-- AS 300 Box (Top Left) -->
+  <g filter="url(#bgpShadow)">
+    <rect x="40" y="20" width="420" height="175" rx="22" fill="#ffffff" stroke="#93c5fd" stroke-width="2"/>
+    <rect x="58" y="36" width="90" height="30" rx="8" fill="#eff6ff" stroke="#bfdbfe"/>
+    <text x="103" y="56" text-anchor="middle" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#1d4ed8">AS 300</text>
+
+    <!-- IGP Links inside AS 300 -->
+    <line x1="175" y1="75" x2="280" y2="62" stroke="#3b82f6" stroke-width="2.5" stroke-dasharray="5 4"/>
+    <line x1="280" y1="62" x2="385" y2="80" stroke="#3b82f6" stroke-width="2.5" stroke-dasharray="5 4"/>
+    <line x1="175" y1="75" x2="215" y2="145" stroke="#3b82f6" stroke-width="2.5" stroke-dasharray="5 4"/>
+    <line x1="215" y1="145" x2="345" y2="145" stroke="#3b82f6" stroke-width="2.5" stroke-dasharray="5 4"/>
+    <line x1="385" y1="80" x2="345" y2="145" stroke="#3b82f6" stroke-width="2.5" stroke-dasharray="5 4"/>
+
+    <!-- Routers inside AS 300 -->
+    <circle cx="175" cy="75" r="20" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+    <text x="175" y="80" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#1e40af">R301</text>
+
+    <circle cx="280" cy="62" r="20" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+    <text x="280" y="67" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#1e40af">R302</text>
+
+    <circle cx="385" cy="80" r="20" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+    <text x="385" y="85" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#1e40af">R303</text>
+
+    <circle cx="215" cy="145" r="20" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+    <text x="215" y="150" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#1e40af">R304</text>
+
+    <circle cx="345" cy="145" r="22" fill="#ea580c" stroke="#ffffff" stroke-width="2.5"/>
+    <text x="345" y="150" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">R305</text>
+  </g>
+
+  <!-- AS 200 Box (Bottom Left) -->
+  <g filter="url(#bgpShadow)">
+    <rect x="40" y="230" width="420" height="175" rx="22" fill="#ffffff" stroke="#a5b4fc" stroke-width="2"/>
+    <rect x="58" y="246" width="90" height="30" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="103" y="266" text-anchor="middle" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#4338ca">AS 200</text>
+
+    <!-- IGP Links inside AS 200 -->
+    <line x1="175" y1="305" x2="285" y2="280" stroke="#4f46e5" stroke-width="2.5" stroke-dasharray="5 4"/>
+    <line x1="175" y1="305" x2="225" y2="365" stroke="#4f46e5" stroke-width="2.5" stroke-dasharray="5 4"/>
+    <line x1="285" y1="280" x2="345" y2="365" stroke="#4f46e5" stroke-width="2.5" stroke-dasharray="5 4"/>
+    <line x1="225" y1="365" x2="345" y2="365" stroke="#4f46e5" stroke-width="2.5" stroke-dasharray="5 4"/>
+    <line x1="225" y1="365" x2="395" y2="315" stroke="#4f46e5" stroke-width="2.5" stroke-dasharray="5 4"/>
+
+    <!-- Routers inside AS 200 -->
+    <circle cx="175" cy="305" r="20" fill="#e0e7ff" stroke="#4f46e5" stroke-width="2"/>
+    <text x="175" y="310" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#3730a3">R201</text>
+
+    <circle cx="285" cy="280" r="22" fill="#ea580c" stroke="#ffffff" stroke-width="2.5"/>
+    <text x="285" y="285" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">R202</text>
+
+    <circle cx="395" cy="315" r="22" fill="#ea580c" stroke="#ffffff" stroke-width="2.5"/>
+    <text x="395" y="320" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">R203</text>
+
+    <circle cx="225" cy="365" r="20" fill="#e0e7ff" stroke="#4f46e5" stroke-width="2"/>
+    <text x="225" y="370" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#3730a3">R204</text>
+
+    <circle cx="345" cy="365" r="20" fill="#e0e7ff" stroke="#4f46e5" stroke-width="2"/>
+    <text x="345" y="370" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#3730a3">R205</text>
+  </g>
+
+  <!-- AS 100 Box (Bottom Right) -->
+  <g filter="url(#bgpShadow)">
+    <rect x="510" y="140" width="400" height="265" rx="22" fill="#ffffff" stroke="#6ee7b7" stroke-width="2"/>
+    <rect x="528" y="156" width="90" height="30" rx="8" fill="#ecfdf5" stroke="#a7f3d0"/>
+    <text x="573" y="176" text-anchor="middle" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#047857">AS 100</text>
+
+    <!-- IGP Links inside AS 100 -->
+    <line x1="585" y1="315" x2="710" y2="235" stroke="#059669" stroke-width="2.5" stroke-dasharray="5 4"/>
+    <line x1="710" y1="235" x2="835" y2="275" stroke="#059669" stroke-width="2.5" stroke-dasharray="5 4"/>
+    <line x1="585" y1="315" x2="795" y2="360" stroke="#059669" stroke-width="2.5" stroke-dasharray="5 4"/>
+    <line x1="835" y1="275" x2="670" y2="360" stroke="#059669" stroke-width="2.5" stroke-dasharray="5 4"/>
+    <line x1="670" y1="360" x2="795" y2="360" stroke="#059669" stroke-width="2.5" stroke-dasharray="5 4"/>
+
+    <!-- Routers inside AS 100 -->
+    <circle cx="585" cy="315" r="22" fill="#ea580c" stroke="#ffffff" stroke-width="2.5"/>
+    <text x="585" y="320" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">R101</text>
+
+    <circle cx="710" cy="235" r="20" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+    <text x="710" y="240" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#065f46">R102</text>
+
+    <circle cx="835" cy="275" r="20" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+    <text x="835" y="280" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#065f46">R103</text>
+
+    <circle cx="670" cy="360" r="20" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+    <text x="670" y="365" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#065f46">R104</text>
+
+    <circle cx="795" cy="360" r="20" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+    <text x="795" y="365" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#065f46">R105</text>
+  </g>
+
+  <!-- Bold EGP (BGP) Links Between Autonomous Systems -->
+  <line x1="336" y1="165" x2="294" y2="260" stroke="#ea580c" stroke-width="5" stroke-linecap="round"/>
+  <line x1="417" y1="315" x2="563" y2="315" stroke="#ea580c" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- BGP Pill Callout -->
+  <rect x="448" y="298" width="74" height="28" rx="14" fill="#ea580c"/>
+  <text x="485" y="317" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#ffffff">eBGP</text>
+</svg>

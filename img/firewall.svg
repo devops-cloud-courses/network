@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 440" width="940" height="440" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="fwGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ea580c"/>
+      <stop offset="100%" stop-color="#dc2626"/>
+    </linearGradient>
+    <marker id="allowArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#059669"/>
+    </marker>
+    <marker id="denyArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#dc2626"/>
+    </marker>
+    <filter id="fwShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="940" height="440" rx="16" fill="#f8fafc"/>
+
+  <!-- Left Zone: Trusted LAN -->
+  <rect x="28" y="28" width="320" height="384" rx="18" fill="#eff6ff" stroke="#bfdbfe" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="188" y="64" text-anchor="middle" font-size="18" font-weight="800" fill="#1e40af">LAN (Trusted Internal Network)</text>
+  <text x="188" y="85" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" fill="#3b82f6">10.0.0.0/24</text>
+
+  <!-- LAN Workstations -->
+  <g filter="url(#fwShadow)">
+    <rect x="64" y="114" width="175" height="68" rx="12" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+    <rect x="78" y="128" width="40" height="40" rx="8" fill="#dbeafe"/>
+    <rect x="86" y="137" width="24" height="16" rx="2" fill="none" stroke="#2563eb" stroke-width="2"/>
+    <path d="M83 157 H113" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+    <text x="130" y="145" font-size="14" font-weight="700" fill="#0f172a">Workstation 1</text>
+    <text x="130" y="164" font-size="11" font-family="'JetBrains Mono', monospace" fill="#64748b">10.0.0.11</text>
+
+    <rect x="64" y="204" width="175" height="68" rx="12" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+    <rect x="78" y="218" width="40" height="40" rx="8" fill="#dbeafe"/>
+    <rect x="86" y="227" width="24" height="16" rx="2" fill="none" stroke="#2563eb" stroke-width="2"/>
+    <path d="M83 247 H113" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+    <text x="130" y="235" font-size="14" font-weight="700" fill="#0f172a">Workstation 2</text>
+    <text x="130" y="254" font-size="11" font-family="'JetBrains Mono', monospace" fill="#64748b">10.0.0.12</text>
+
+    <rect x="64" y="294" width="175" height="68" rx="12" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+    <rect x="78" y="308" width="40" height="40" rx="8" fill="#dbeafe"/>
+    <rect x="86" y="317" width="24" height="16" rx="2" fill="none" stroke="#2563eb" stroke-width="2"/>
+    <path d="M83 337 H113" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+    <text x="130" y="325" font-size="14" font-weight="700" fill="#0f172a">Internal Server</text>
+    <text x="130" y="344" font-size="11" font-family="'JetBrains Mono', monospace" fill="#64748b">10.0.0.20</text>
+  </g>
+
+  <!-- LAN Switch / Bus lines -->
+  <path d="M239 148 H285 V328 H239 M239 238 H285" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+
+  <!-- Right Zone: Untrusted WAN -->
+  <rect x="592" y="28" width="320" height="384" rx="18" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="752" y="64" text-anchor="middle" font-size="18" font-weight="800" fill="#334155">WAN / Internet (Untrusted)</text>
+  <text x="752" y="85" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" fill="#64748b">External Public Network</text>
+
+  <!-- WAN Nodes -->
+  <g filter="url(#fwShadow)">
+    <!-- Allowed Web Traffic Node -->
+    <rect x="665" y="122" width="210" height="76" rx="12" fill="#ffffff" stroke="#6ee7b7" stroke-width="2"/>
+    <circle cx="700" cy="160" r="20" fill="#d1fae5"/>
+    <path d="M693 160 L698 165 L708 154" fill="none" stroke="#059669" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="730" y="153" font-size="14" font-weight="700" fill="#0f172a">HTTPS Service</text>
+    <text x="730" y="172" font-size="11" font-family="'JetBrains Mono', monospace" fill="#059669">TCP :443 ALLOWED</text>
+
+    <!-- Blocked Malicious Traffic Node -->
+    <rect x="665" y="256" width="210" height="76" rx="12" fill="#ffffff" stroke="#fca5a5" stroke-width="2"/>
+    <circle cx="700" cy="294" r="20" fill="#fee2e2"/>
+    <path d="M693 287 L707 301 M707 287 L693 301" fill="none" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/>
+    <text x="730" y="287" font-size="14" font-weight="700" fill="#0f172a">Unauthorized Access</text>
+    <text x="730" y="306" font-size="11" font-family="'JetBrains Mono', monospace" fill="#dc2626">TCP :22 / :23 BLOCKED</text>
+  </g>
+
+  <!-- Traffic Arrows through & blocked by Firewall -->
+  <line x1="285" y1="160" x2="655" y2="160" stroke="#059669" stroke-width="3.5" marker-end="url(#allowArrow)" marker-start="url(#allowArrow)"/>
+  <line x1="665" y1="294" x2="532" y2="294" stroke="#dc2626" stroke-width="3.5" stroke-dasharray="7 5" marker-end="url(#denyArrow)"/>
+
+  <!-- Center Firewall Pillar -->
+  <g filter="url(#fwShadow)">
+    <rect x="415" y="64" width="110" height="312" rx="16" fill="url(#fwGrad)" stroke="#ffffff" stroke-width="3"/>
+    <!-- Brick Pattern Overlay -->
+    <g stroke="#ffffff" stroke-opacity="0.22" stroke-width="1.5">
+      <line x1="415" y1="115" x2="525" y2="115"/>
+      <line x1="415" y1="165" x2="525" y2="165"/>
+      <line x1="415" y1="215" x2="525" y2="215"/>
+      <line x1="415" y1="265" x2="525" y2="265"/>
+      <line x1="415" y1="315" x2="525" y2="315"/>
+      <line x1="470" y1="64" x2="470" y2="115"/>
+      <line x1="445" y1="115" x2="445" y2="165"/>
+      <line x1="495" y1="115" x2="495" y2="165"/>
+      <line x1="470" y1="165" x2="470" y2="215"/>
+      <line x1="445" y1="215" x2="445" y2="265"/>
+      <line x1="495" y1="215" x2="495" y2="265"/>
+      <line x1="470" y1="265" x2="470" y2="315"/>
+    </g>
+    <!-- Shield Icon in Center -->
+    <circle cx="470" cy="220" r="32" fill="#ffffff"/>
+    <path d="M470 198 L486 205 V218 C486 229 479 237 470 241 C461 237 454 229 454 218 V205 Z" fill="#dc2626"/>
+    <path d="M464 220 L468 224 L477 215" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Firewall Title Pill -->
+  <rect x="405" y="388" width="130" height="32" rx="16" fill="#0f172a"/>
+  <text x="470" y="409" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">FIREWALL (L4)</text>
+</svg>
