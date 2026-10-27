@@ -11,7 +11,7 @@
 
 ### VPC Network peering
 
-- **Network peering** enables to exhange routes between differents network without configuring a router
+- **Network peering** enables exchanging routes between different networks without configuring a router
 
 ----
 
@@ -51,4 +51,4 @@
 
 - A **bastion host** is a special-purpose computer on a network specifically designed and configured to withstand attacks
 - It is hardened in this manner primarily due to its location and purpose, which is either on the outside of a firewall or inside of a demilitarized zone (`DMZ`) and usually involves access from untrusted networks or computers
-- These computers also equipped special networking interfaces to withstand high-bandwidth attacks through the internet
+- These computers are also equipped with special networking interfaces to withstand high-bandwidth attacks through the internet

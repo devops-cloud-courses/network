@@ -2,13 +2,13 @@
 
 ----
 
-### Qui connait le réseau ?
+### Who knows networking?
 
 ----
 
 ## How to explore this doc
 
-* This presentation use [Reveal.js framework](https://revealjs.com/#/)
+* This presentation uses [Reveal.js framework](https://revealjs.com/#/)
 * Press <kbd>Esc</kbd> to zoom out to all slides or zoom in
 * Press <kbd>?</kbd> on your keyboard to get navigation help
 

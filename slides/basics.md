@@ -75,7 +75,7 @@
 - 3 steps to initiate a connection
   - `SYN` (synchronized)
   - `SYN/ACK` (synchronize / acknowledge)
-  - `ACK` (acknowleged)
+  - `ACK` (acknowledged)
 
 <img src="img/syn-ack.png" alt="3-way handshake" />
 
@@ -90,7 +90,7 @@
 
 ### IPv4
 
-- `32-bits` address
+- `32-bit` address
 - From `0.0.0.0` to `255.255.255.255`
 - Associated with a subnet mask to be able to identify a machine and the network associated with this machine
 - For example
@@ -106,7 +106,7 @@
 - Followed by a `/` and ending with the bit-length of the prefix
 - For example
   - `198.51.100.0/24`
-  - Addresses from `198.51.100.0` to `198.51.100.255` belongs to this network
+  - Addresses from `198.51.100.0` to `198.51.100.255` belong to this network
 
 ----
 
@@ -114,12 +114,12 @@
 
 <p class="cidr-subtitle">Classless Inter-Domain Routing</p>
 
-- **Class A** : `10.0.0.0/8`
-  - `16 777 216` IPs available
-- **Class B** : `172.16.0.0/16`
-  - `1 048 576` IPs available
-- **Class C** : `192.168.0.0/24`
-  - `65 536` IPs available
+- **Class A**: `10.0.0.0/8`
+  - `16,777,216` IPs available
+- **Class B**: `172.16.0.0/16`
+  - `1,048,576` IPs available
+- **Class C**: `192.168.0.0/24`
+  - `65,536` IPs available
 
 ----
 
@@ -127,9 +127,9 @@
 
 <p class="cidr-subtitle">Classless Inter-Domain Routing</p>
 
-- **Class D** : `224.0.0.0/32`
+- **Class D**: `224.0.0.0/32`
   - Multicast
-- **Class E** : `240.0.0.0/32`
+- **Class E**: `240.0.0.0/32`
   - Reserved
 
 ----
@@ -187,7 +187,7 @@
 ### Firewalls
 
 - **Packet filter**
-  - The first reported type of network firewall is called a packet filter, which inspect packets transferred between computers. The firewall maintains an access control list which dictates what packets will be looked at and what action should be applied
+  - The first reported type of network firewall is called a packet filter, which inspects packets transferred between computers. The firewall maintains an access control list which dictates what packets will be looked at and what action should be applied
 
 ----
 
@@ -211,13 +211,13 @@
 
 ----
 
-### DMZ : Single firewall
+### DMZ: Single firewall
 
 ![Single FW](img/single-fw.png)
 
 ----
 
-### DMZ : Dual firewalls
+### DMZ: Dual firewalls
 
 ![Dual FW](img/dual-fw.png)
 
@@ -233,11 +233,11 @@
 ### DNS
 
 - For example
-  - `A record` : associate a DNS name to an IPv4
-  - `AAAA record` : associate a DNS name to an IPv6
-  - `CNAME record` : Alias of one name to another
-  - `NS record` : Delegates a DNS zone to use the given authoritative name servers
-  - `MX record` : Maps a domain name to a list of message transfer agents for that domain
+  - `A record`: associate a DNS name to an IPv4
+  - `AAAA record`: associate a DNS name to an IPv6
+  - `CNAME record`: Alias of one name to another
+  - `NS record`: Delegates a DNS zone to use the given authoritative name servers
+  - `MX record`: Maps a domain name to a list of message transfer agents for that domain
 
 <p class="ref-link"><a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types" target="_blank">https://en.wikipedia.org/wiki/List_of_DNS_record_types</a></p>
 
