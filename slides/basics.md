@@ -129,11 +129,11 @@
 
 <p class="cidr-subtitle">Classless Inter-Domain Routing &amp; Private Ranges</p>
 
-- **10.0.0.0/8** *(1 Class A block)*
+- **10.0.0.0/8** — *Class A private range (24 host bits)*
   - `10.0.0.0` – `10.255.255.255` (`16,777,216` IPs)
-- **172.16.0.0/12** *(16 contiguous Class B `/16` blocks)*
+- **172.16.0.0/12** — *Class B private range (20 host bits)*
   - `172.16.0.0` – `172.31.255.255` (`1,048,576` IPs)
-- **192.168.0.0/16** *(256 contiguous Class C `/24` blocks)*
+- **192.168.0.0/16** — *Class C private range (16 host bits)*
   - `192.168.0.0` – `192.168.255.255` (`65,536` IPs)
 
 ----
