@@ -90,7 +90,7 @@
 
 ### IPv4
 
-- `32-bit` address
+- `32-bit` address (`~4.3 billion` total addresses)
 - From `0.0.0.0` to `255.255.255.255`
 - Associated with a subnet mask to be able to identify a machine and the network associated with this machine
 - For example
@@ -99,38 +99,54 @@
 
 ----
 
+### IPv6
+
+- `128-bit` hexadecimal address (`3.4 × 10³⁸` addresses) designed to solve **IPv4 exhaustion**
+- Written as 8 groups of 4 hexadecimal digits separated by colons (e.g., `2001:0db8:85a3::8a2e:0370:7334`)
+- Eliminates the need for **NAT** with end-to-end global reachability, simplified `40-byte` headers, and **SLAAC** (stateless auto-configuration)
+- Modern networks run **Dual-Stack** (`IPv4` + `IPv6` side by side)
+
+----
+
+### IPv4 vs. IPv6
+
+![IPv4 vs IPv6](img/ipv4-vs-ipv6.svg)
+
+----
+
 ### Subnets
 
 - Logical division of an IP network
 - Routing prefix expressed in **CIDR** notation
-- Followed by a `/` and ending with the bit-length of the prefix
-- For example
-  - `198.51.100.0/24`
-  - Addresses from `198.51.100.0` to `198.51.100.255` belong to this network
+- Followed by a `/` and ending with the bit-length of the network prefix
+- Total addresses in a subnet: `2^(32 - prefix)`
+  - E.g. `198.51.100.0/24` → `2^(32 - 24) = 256` IPs (`198.51.100.0` to `198.51.100.255`)
+  - Standard networks reserve `2` IPs (Network & Broadcast); Cloud VPCs typically reserve `4–5` IPs per subnet
 
 ----
 
-### CIDR
+### CIDR & Private IPs (RFC 1918)
 
-<p class="cidr-subtitle">Classless Inter-Domain Routing</p>
+<p class="cidr-subtitle">Classless Inter-Domain Routing &amp; Private Ranges</p>
 
-- **Class A**: `10.0.0.0/8`
-  - `16,777,216` IPs available
-- **Class B**: `172.16.0.0/16`
-  - `1,048,576` IPs available
-- **Class C**: `192.168.0.0/24`
-  - `65,536` IPs available
+- **10.0.0.0/8** *(1 Class A block)*
+  - `10.0.0.0` – `10.255.255.255` (`16,777,216` IPs)
+- **172.16.0.0/12** *(16 contiguous Class B `/16` blocks)*
+  - `172.16.0.0` – `172.31.255.255` (`1,048,576` IPs)
+- **192.168.0.0/16** *(256 contiguous Class C `/24` blocks)*
+  - `192.168.0.0` – `192.168.255.255` (`65,536` IPs)
 
 ----
 
-### CIDR
+### Special IPv4 Ranges
 
-<p class="cidr-subtitle">Classless Inter-Domain Routing</p>
+<p class="cidr-subtitle">Reserved &amp; Special-Purpose Blocks</p>
 
-- **Class D**: `224.0.0.0/32`
-  - Multicast
-- **Class E**: `240.0.0.0/32`
-  - Reserved
+- **Default Route**: `0.0.0.0/0` — Matches all IPv4 addresses (Internet gateway route)
+- **Host / Single IP**: `/32` — Pinpoints a single host address (e.g., `203.0.113.5/32`)
+- **Loopback**: `127.0.0.0/8` (`127.0.0.1` / `localhost`) — Local host network stack
+- **Link-Local / Cloud Metadata**: `169.254.0.0/16` (`169.254.169.254` in AWS/GCP/Azure)
+- **Multicast (Class D)**: `224.0.0.0/4` & **Reserved (Class E)**: `240.0.0.0/4`
 
 ----
 
@@ -174,6 +190,20 @@
 | 53 | Domain Name System (`DNS`) service |
 | 80 | Hypertext Transfer Protocol (`HTTP`) used in the World Wide Web |
 | 443 | HTTP Secure (`HTTPS`) HTTP over `TLS/SSL` |
+
+----
+
+### TLS / HTTPS & mTLS
+
+- **Transport Layer Security (`TLS`)** provides encryption, data integrity, and authentication in transit
+- **Standard TLS (One-Way)**: The client verifies the server's `X.509` certificate against a trusted **Certificate Authority (`CA`)** before negotiating a fast symmetric session key (`AES-GCM` / `ChaCha20`)
+- **Mutual TLS (`mTLS`)**: Both client and server present and verify certificates — the foundation of **Zero Trust** service-to-service security
+
+----
+
+### TLS vs. mTLS
+
+![TLS vs mTLS](img/tls-mtls.svg)
 
 ----
 
@@ -275,8 +305,22 @@
 
 ### Router
 
-- A **router** is a networking device that forwards data packets between computer networks
+- A **router** is a networking device that forwards data packets between computer networks (`Layer 3`)
 - A router is connected to two or more data lines from different IP networks
+
+----
+
+### L2 Switching vs. L3 Routing & ARP
+
+- **Layer 2 (`Switch` / `VLAN`)**: Delivers Ethernet frames within the **same local subnet** using hardware `MAC` addresses
+- **ARP (`Address Resolution Protocol`)**: Translates a known `L3` IPv4 address into its `L2` `MAC` address inside the local broadcast domain
+- **Layer 3 (`Router`)**: Forwards IP packets **between different subnets**; source and destination IPs remain unchanged end-to-end while `MAC` addresses are rewritten at every router hop
+
+----
+
+### L2 Switching vs. L3 Routing & ARP
+
+![L2 vs L3 and ARP](img/l2-vs-l3-arp.svg)
 
 ----
 

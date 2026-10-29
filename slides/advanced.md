@@ -18,6 +18,14 @@
 ### Proxy
 
 - A **proxy server** is a server application that acts as an intermediary between a client requesting a resource and the server providing that resource
+- **Forward Proxy** *(client-side)*: Sits in front of internal clients to filter outbound traffic, cache responses, or mask client IPs
+- **Reverse Proxy** *(server-side)*: Sits in front of backend servers (`NGINX`, `Envoy`, `Traefik`, `HAProxy`) to handle `TLS` termination, request routing, rate limiting, and load balancing
+
+----
+
+### Forward vs. Reverse Proxy
+
+![Forward vs Reverse Proxy](img/forward-vs-reverse-proxy.svg)
 
 ----
 
@@ -30,6 +38,33 @@
 ### Load balancing
 
 <img src="img/load-balancing.svg" alt="Load balancing" />
+
+----
+
+### L4 vs. L7 Load Balancing
+
+- **Layer 4 Load Balancer (`Transport`)**: Routes `TCP`/`UDP` connections based strictly on `IP` + `Port` with ultra-low latency and high throughput (`AWS NLB`, `IPVS`)
+- **Layer 7 Load Balancer (`Application`)**: Terminates `TLS` and inspects `HTTP/S` headers, paths (`/api`, `/pay`), hostnames, and cookies to make smart routing decisions (`AWS ALB`, `GCP App LB`, `Envoy`)
+
+----
+
+### L4 vs. L7 Load Balancing
+
+![L4 vs L7 Load Balancing](img/l4-vs-l7-lb.svg)
+
+----
+
+### CDN & Edge Caching
+
+- A **Content Delivery Network (`CDN`)** caches content across globally distributed **Edge PoPs (Points of Presence)** close to end users
+- Uses **Anycast** routing so users automatically connect to the nearest edge node (reducing `RTT` latency from `100+ ms` to `< 10 ms`)
+- Absorbs `DDoS` traffic at the edge and offloads `90%+` of read traffic from origin servers
+
+----
+
+### CDN & Edge Caching
+
+![CDN Edge Caching](img/cdn-edge.svg)
 
 ----
 
@@ -52,3 +87,49 @@
 - A **bastion host** is a special-purpose computer on a network specifically designed and configured to withstand attacks
 - It is hardened in this manner primarily due to its location and purpose, which is either on the outside of a firewall or inside of a demilitarized zone (`DMZ`) and usually involves access from untrusted networks or computers
 - These computers are also equipped with special networking interfaces to withstand high-bandwidth attacks through the internet
+
+----
+
+### Container & Kubernetes Networking (CNI)
+
+- In Kubernetes, every `Pod` gets its own routable IP address and can communicate with any other `Pod` across nodes without `NAT`
+- **CNI (`Container Network Interface`)** plugins (`Cilium`, `Calico`, `Flannel`) connect Pods across hosts using **Overlay tunnels (`VXLAN` / `Geneve`)** or **`eBPF` native routing**
+- Traffic is exposed via virtual IPs (`Service ClusterIP`) and `L7` **Ingress / Gateway API** controllers
+
+----
+
+### Container & Kubernetes Networking (CNI)
+
+![Kubernetes CNI Networking](img/k8s-cni.svg)
+
+----
+
+### Service Mesh
+
+- A **Service Mesh** (`Istio`, `Linkerd`, `Cilium`) manages **East–West** traffic between microservices transparently without changing application code
+- Deploys lightweight **Data Plane** proxies (`Envoy` sidecars or node-level `eBPF` / ambient proxies) managed by a central **Control Plane**
+- Provides automatic **Mutual TLS (`mTLS`)**, fine-grained `L7` authorization, retries, circuit breaking, and distributed tracing
+
+----
+
+### Service Mesh
+
+![Service Mesh Architecture](img/service-mesh.svg)
+
+----
+
+### Network Troubleshooting by Layer
+
+| Layer | What to Check | Essential CLI Tools |
+|---|---|---|
+| `L2 / L3` | Interface IPs, ARP table, routing table, reachability | `ip a`, `ip route`, `ip neigh`, `ping`, `traceroute`, `mtr` |
+| `L4` | Open/listening ports, firewall drops, TCP handshake | `ss -tulnp`, `nc -zv <host> <port>`, `iptables` / `nft` |
+| `L7 DNS` | Authoritative records, DNS server resolution & TTL | `dig +short <domain>`, `nslookup`, `resolvectl` |
+| `L7 App` | TLS certificate chain, HTTP headers & status codes | `curl -Iv https://...`, `openssl s_client -connect host:443` |
+| `Packet` | Raw wire frames when packets silently disappear | `tcpdump -nn -i any port 443`, `Wireshark`, `Hubble` |
+
+----
+
+### Network Troubleshooting Workflow
+
+![Network Troubleshooting Workflow](img/troubleshooting-flow.svg)

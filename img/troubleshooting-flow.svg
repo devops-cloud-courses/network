@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 420" width="980" height="420" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="tsStep1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="tsStep2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#4338ca"/>
+    </linearGradient>
+    <linearGradient id="tsStep3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="tsStep4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <marker id="tsArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#64748b"/>
+    </marker>
+    <filter id="tsShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="980" height="420" rx="16" fill="#f8fafc"/>
+
+  <text x="490" y="38" text-anchor="middle" font-size="17" font-weight="800" fill="#0f172a">Bottom-Up Network Debugging Workflow ("Why can't Service A reach Service B?")</text>
+
+  <!-- Step 1: L2 / L3 IP & Routing -->
+  <g filter="url(#tsShadow)">
+    <rect x="24" y="64" width="208" height="248" rx="16" fill="#ffffff" stroke="#bfdbfe" stroke-width="2"/>
+    <rect x="24" y="64" width="208" height="48" rx="16" fill="url(#tsStep1)"/>
+    <text x="128" y="94" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">1. L2/L3 — IP &amp; Routing</text>
+
+    <text x="128" y="134" text-anchor="middle" font-size="12" font-weight="700" fill="#334155">Is my interface &amp; route up?</text>
+    <rect x="40" y="148" width="176" height="32" rx="8" fill="#eff6ff"/>
+    <text x="128" y="169" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#1d4ed8">ip a / ip route</text>
+
+    <rect x="40" y="190" width="176" height="32" rx="8" fill="#eff6ff"/>
+    <text x="128" y="211" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#1d4ed8">ping &lt;target-ip&gt;</text>
+
+    <rect x="40" y="232" width="176" height="32" rx="8" fill="#eff6ff"/>
+    <text x="128" y="253" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#1d4ed8">traceroute / mtr</text>
+
+    <text x="128" y="292" text-anchor="middle" font-size="11" fill="#64748b">Checks: Subnet, GW, NAT, VPN</text>
+  </g>
+
+  <line x1="232" y1="188" x2="258" y2="188" stroke="#64748b" stroke-width="2.5" marker-end="url(#tsArrow)"/>
+
+  <!-- Step 2: L7 DNS Resolution -->
+  <g filter="url(#tsShadow)">
+    <rect x="266" y="64" width="208" height="248" rx="16" fill="#ffffff" stroke="#c7d2fe" stroke-width="2"/>
+    <rect x="266" y="64" width="208" height="48" rx="16" fill="url(#tsStep2)"/>
+    <text x="370" y="94" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">2. DNS — Name Resolution</text>
+
+    <text x="370" y="134" text-anchor="middle" font-size="12" font-weight="700" fill="#334155">Does hostname resolve to IP?</text>
+    <rect x="282" y="148" width="176" height="32" rx="8" fill="#eef2ff"/>
+    <text x="370" y="169" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#4338ca">dig +short &lt;host&gt;</text>
+
+    <rect x="282" y="190" width="176" height="32" rx="8" fill="#eef2ff"/>
+    <text x="370" y="211" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#4338ca">nslookup &lt;host&gt;</text>
+
+    <rect x="282" y="232" width="176" height="32" rx="8" fill="#eef2ff"/>
+    <text x="370" y="253" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#4338ca">cat /etc/resolv.conf</text>
+
+    <text x="370" y="292" text-anchor="middle" font-size="11" fill="#64748b">Checks: CoreDNS, A/CNAME, TTL</text>
+  </g>
+
+  <line x1="474" y1="188" x2="500" y2="188" stroke="#64748b" stroke-width="2.5" marker-end="url(#tsArrow)"/>
+
+  <!-- Step 3: L4 Transport & Firewalls -->
+  <g filter="url(#tsShadow)">
+    <rect x="508" y="64" width="208" height="248" rx="16" fill="#ffffff" stroke="#ddd6fe" stroke-width="2"/>
+    <rect x="508" y="64" width="208" height="48" rx="16" fill="url(#tsStep3)"/>
+    <text x="612" y="94" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">3. L4 — Ports &amp; Firewall</text>
+
+    <text x="612" y="134" text-anchor="middle" font-size="12" font-weight="700" fill="#334155">Is port listening &amp; reachable?</text>
+    <rect x="524" y="148" width="176" height="32" rx="8" fill="#f5f3ff"/>
+    <text x="612" y="169" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#6d28d9">nc -zv &lt;host&gt; 443</text>
+
+    <rect x="524" y="190" width="176" height="32" rx="8" fill="#f5f3ff"/>
+    <text x="612" y="211" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#6d28d9">ss -tulnp</text>
+
+    <rect x="524" y="232" width="176" height="32" rx="8" fill="#f5f3ff"/>
+    <text x="612" y="253" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#6d28d9">iptables / nftables</text>
+
+    <text x="612" y="292" text-anchor="middle" font-size="11" fill="#64748b">Checks: Security Groups, SYN/ACK</text>
+  </g>
+
+  <line x1="716" y1="188" x2="742" y2="188" stroke="#64748b" stroke-width="2.5" marker-end="url(#tsArrow)"/>
+
+  <!-- Step 4: L7 HTTP & TLS -->
+  <g filter="url(#tsShadow)">
+    <rect x="748" y="64" width="208" height="248" rx="16" fill="#ffffff" stroke="#a7f3d0" stroke-width="2"/>
+    <rect x="748" y="64" width="208" height="48" rx="16" fill="url(#tsStep4)"/>
+    <text x="852" y="94" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">4. L7 — TLS &amp; HTTP App</text>
+
+    <text x="852" y="134" text-anchor="middle" font-size="12" font-weight="700" fill="#334155">Valid Cert &amp; HTTP Status?</text>
+    <rect x="764" y="148" width="176" height="32" rx="8" fill="#ecfdf5"/>
+    <text x="852" y="169" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#047857">curl -Iv https://...</text>
+
+    <rect x="764" y="190" width="176" height="32" rx="8" fill="#ecfdf5"/>
+    <text x="852" y="211" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#047857">openssl s_client</text>
+
+    <rect x="764" y="232" width="176" height="32" rx="8" fill="#ecfdf5"/>
+    <text x="852" y="253" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#047857">HTTP 200 / 403 / 502</text>
+
+    <text x="852" y="292" text-anchor="middle" font-size="11" fill="#64748b">Checks: Cert Expiry, Proxy, Auth</text>
+  </g>
+
+  <!-- Bottom Bar: Deep Packet Inspection -->
+  <g filter="url(#tsShadow)">
+    <rect x="24" y="334" width="932" height="64" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <rect x="42" y="349" width="206" height="34" rx="8" fill="#0f172a"/>
+    <text x="145" y="371" text-anchor="middle" font-size="12.5" font-weight="800" fill="#ffffff">DEEP PACKET CAPTURE</text>
+    <text x="272" y="371" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#1d4ed8">tcpdump -nn -i any port 443</text>
+    <text x="530" y="371" font-size="13" font-weight="600" fill="#334155">or inspect PCAPs in <tspan font-weight="800" fill="#0f172a">Wireshark</tspan> / <tspan font-weight="800" fill="#0f172a">Hubble (eBPF)</tspan> when packets vanish</text>
+  </g>
+</svg>
