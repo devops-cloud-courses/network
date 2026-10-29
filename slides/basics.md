@@ -62,32 +62,6 @@
 
 ----
 
-### TCP
-
-- **TCP** stands for **Transmission Control Protocol**
-- TCP provides reliable, ordered, and error-checked delivery of a stream of octets (bytes) between applications running on hosts communicating via an IP network
-- TCP is connection-oriented, and a connection between client and server is established before data can be sent
-
-----
-
-### 3-way handshake
-
-- 3 steps to initiate a connection
-  - `SYN` (synchronized)
-  - `SYN/ACK` (synchronize / acknowledge)
-  - `ACK` (acknowledged)
-
-<img src="img/syn-ack.svg" alt="3-way handshake" />
-
-----
-
-### UDP
-
-- **UDP** stands for **User Datagram Protocol**
-- Uses a simple connectionless communication model with a minimum of protocol mechanisms
-
-----
-
 ### IPv4
 
 - `32-bit` address (`~4.3 billion` total addresses)
@@ -162,6 +136,70 @@
 
 ----
 
+### Router
+
+- A **router** is a networking device that forwards data packets between computer networks (`Layer 3`)
+- A router is connected to two or more data lines from different IP networks
+
+----
+
+### L2 Switching vs. L3 Routing & ARP
+
+- **Layer 2 (`Switch` / `VLAN`)**: Delivers Ethernet frames within the **same local subnet** using hardware `MAC` addresses
+- **ARP (`Address Resolution Protocol`)**: Translates a known `L3` IPv4 address into its `L2` `MAC` address inside the local broadcast domain
+- **Layer 3 (`Router`)**: Forwards IP packets **between different subnets**; source and destination IPs remain unchanged end-to-end while `MAC` addresses are rewritten at every router hop
+
+----
+
+### L2 Switching vs. L3 Routing & ARP
+
+![L2 vs L3 and ARP](img/l2-vs-l3-arp.svg)
+
+----
+
+### Routing (BGP)
+
+- **Border Gateway Protocol (BGP)** is a standardized exterior gateway protocol designed to exchange routing and reachability information among autonomous systems (`AS`) on the Internet
+
+![BGP](img/bgp.svg)
+
+----
+
+### NAT
+
+- **Network address translation (NAT)** is a method of mapping an IP address space into another
+- One Internet-routable IP address of a NAT gateway can be used for an entire private network
+
+<img src="img/nat.svg" alt="NAT" />
+
+----
+
+### TCP
+
+- **TCP** stands for **Transmission Control Protocol**
+- TCP provides reliable, ordered, and error-checked delivery of a stream of octets (bytes) between applications running on hosts communicating via an IP network
+- TCP is connection-oriented, and a connection between client and server is established before data can be sent
+
+----
+
+### 3-way handshake
+
+- 3 steps to initiate a connection
+  - `SYN` (synchronized)
+  - `SYN/ACK` (synchronize / acknowledge)
+  - `ACK` (acknowledged)
+
+<img src="img/syn-ack.svg" alt="3-way handshake" />
+
+----
+
+### UDP
+
+- **UDP** stands for **User Datagram Protocol**
+- Uses a simple connectionless communication model with a minimum of protocol mechanisms
+
+----
+
 ### Ports
 
 - A **port** is a communication endpoint
@@ -190,6 +228,26 @@
 | 53 | Domain Name System (`DNS`) service |
 | 80 | Hypertext Transfer Protocol (`HTTP`) used in the World Wide Web |
 | 443 | HTTP Secure (`HTTPS`) HTTP over `TLS/SSL` |
+
+----
+
+### DNS
+
+- The **Domain Name System (DNS)** is a hierarchical and decentralized naming system for computers, services, or other resources connected to the Internet or a private network
+- Associates various information with domain names assigned to each of the participating entities
+
+----
+
+### DNS
+
+- For example
+  - `A record`: associate a DNS name to an IPv4
+  - `AAAA record`: associate a DNS name to an IPv6
+  - `CNAME record`: Alias of one name to another
+  - `NS record`: Delegates a DNS zone to use the given authoritative name servers
+  - `MX record`: Maps a domain name to a list of message transfer agents for that domain
+
+<p class="ref-link"><a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types" target="_blank">https://en.wikipedia.org/wiki/List_of_DNS_record_types</a></p>
 
 ----
 
@@ -253,35 +311,6 @@
 
 ----
 
-### DNS
-
-- The **Domain Name System (DNS)** is a hierarchical and decentralized naming system for computers, services, or other resources connected to the Internet or a private network
-- Associates various information with domain names assigned to each of the participating entities
-
-----
-
-### DNS
-
-- For example
-  - `A record`: associate a DNS name to an IPv4
-  - `AAAA record`: associate a DNS name to an IPv6
-  - `CNAME record`: Alias of one name to another
-  - `NS record`: Delegates a DNS zone to use the given authoritative name servers
-  - `MX record`: Maps a domain name to a list of message transfer agents for that domain
-
-<p class="ref-link"><a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types" target="_blank">https://en.wikipedia.org/wiki/List_of_DNS_record_types</a></p>
-
-----
-
-### NAT
-
-- **Network address translation (NAT)** is a method of mapping an IP address space into another
-- One Internet-routable IP address of a NAT gateway can be used for an entire private network
-
-<img src="img/nat.svg" alt="NAT" />
-
-----
-
 ### VPN / MPLS
 
 - A **virtual private network (VPN)** extends a private network across a public network and enables users to send and receive data across shared or public networks
@@ -300,32 +329,3 @@
 ### VPN / MPLS
 
 ![VPN](img/vpn.svg)
-
-----
-
-### Router
-
-- A **router** is a networking device that forwards data packets between computer networks (`Layer 3`)
-- A router is connected to two or more data lines from different IP networks
-
-----
-
-### L2 Switching vs. L3 Routing & ARP
-
-- **Layer 2 (`Switch` / `VLAN`)**: Delivers Ethernet frames within the **same local subnet** using hardware `MAC` addresses
-- **ARP (`Address Resolution Protocol`)**: Translates a known `L3` IPv4 address into its `L2` `MAC` address inside the local broadcast domain
-- **Layer 3 (`Router`)**: Forwards IP packets **between different subnets**; source and destination IPs remain unchanged end-to-end while `MAC` addresses are rewritten at every router hop
-
-----
-
-### L2 Switching vs. L3 Routing & ARP
-
-![L2 vs L3 and ARP](img/l2-vs-l3-arp.svg)
-
-----
-
-### Routing (BGP)
-
-- **Border Gateway Protocol (BGP)** is a standardized exterior gateway protocol designed to exchange routing and reachability information among autonomous systems (`AS`) on the Internet
-
-![BGP](img/bgp.svg)
