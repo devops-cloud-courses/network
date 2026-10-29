@@ -32,33 +32,33 @@
 
 ### OSI Model
 
-| Layer # | Name | Example protocols |
+| Layer # | Name | Example protocols & technologies |
 |---|---|---|
-| 7 | Application layer | `HTTP`, `FTP`, `DNS`, `SNMP` |
-| 6 | Presentation layer | `SSL`, `TLS` |
-| 5 | Session layer | `NetBIOS`, `PPTP` |
-| 4 | Transport layer | `TCP`, `UDP` |
+| 7 | Application layer | `HTTPS`, `HTTP/3`, `gRPC`, `DNS`, `SSH`, `WebSockets` |
+| 6 | Presentation layer | `TLS 1.3` *(replaces deprecated `SSL`)*, `Protobuf`, `JSON` |
+| 5 | Session layer | `RPC`, `gRPC Sessions`, `TLS Session Resumption`, `WebSockets` |
+| 4 | Transport layer | `TCP`, `UDP`, `QUIC` |
 
 ----
 
 ### OSI Model
 
-| Layer # | Name | Example protocols |
+| Layer # | Name | Example protocols & technologies |
 |---|---|---|
-| 3 | Network layer | `IP`, `ARP`, `ICMP`, `IPSec` |
-| 2 | Data link layer | `PPP`, `ATM`, `Ethernet` |
-| 1 | Physical layer | `Ethernet`, `USB`, `Bluetooth`, `IEEE 802.11` |
+| 3 | Network layer | `IPv4`, `IPv6`, `ICMP`, `IPsec`, `BGP`, `OSPF` |
+| 2 | Data link layer | `Ethernet (802.3)`, `VLAN (802.1Q)`, `Wi-Fi (802.11)`, `ARP` |
+| 1 | Physical layer | `Fiber Optics`, `Twisted Pair (Cat6/8)`, `Wi-Fi RF (Wi-Fi 6E/7)` |
 
 ----
 
 ### TCP/IP Model
 
-| Layer # | Name | Example protocols |
+| Layer # | Name | Example protocols & technologies |
 |---|---|---|
-| 4 | Application layer | `HTTP`, `FTP`, `DNS`, `SNMP`, `SQL`, `SMB`, `SSL`, `TLS` |
-| 3 | Transport layer | `TCP`, `UDP` |
-| 2 | Network layer | `IP`, `ARP`, `ICMP`, `IPSec` |
-| 1 | Network interface layer | `Ethernet`, `USB`, `Bluetooth`, `IEEE 802.11` |
+| 4 | Application layer | `HTTPS`, `HTTP/3`, `gRPC`, `DNS`, `SSH`, `TLS 1.3` |
+| 3 | Transport layer | `TCP`, `UDP`, `QUIC` |
+| 2 | Network layer | `IPv4`, `IPv6`, `ICMP`, `IPsec`, `BGP` |
+| 1 | Network interface layer | `Ethernet`, `VLAN`, `Wi-Fi (IEEE 802.11)`, `Fiber` |
 
 ----
 
@@ -196,17 +196,17 @@
 ### UDP
 
 - **UDP** stands for **User Datagram Protocol**
-- Uses a simple connectionless communication model with a minimum of protocol mechanisms
+- Connectionless transport protocol with minimal overhead (`8-byte` header, no handshake or head-of-line blocking)
+- Powers modern latency-sensitive protocols: **`DNS` (`:53`)**, **`HTTP/3` & `QUIC` (`:443`)**, **`WireGuard` VPN**, **`WebRTC`** video/voice, and real-time gaming
 
 ----
 
 ### Ports
 
-- A **port** is a communication endpoint
-- A port number is always associated with an IP address of a host and the type of transport protocol used for communication (`TCP` or `UDP`)
-- Specific port numbers are reserved to identify specific services
-- Port numbers lower than `1024` identify the historically most commonly used services
-- Higher-numbered ports are available for general use by applications
+- A **port** (`16-bit` unsigned integer: `0–65535`) is a logical communication endpoint on a host
+- Combined with an IP address and transport protocol (`TCP` / `UDP`) to form a **socket**
+- **Well-known ports (`0–1023`)**: Reserved for core system and network services
+- **Registered (`1024–49151`) & Ephemeral ports (`49152–65535`)**: Used by application services and short-lived client connections
 
 ----
 
@@ -214,10 +214,10 @@
 
 | Number | Assignment |
 |---|---|
-| 20 | File Transfer Protocol (`FTP`) Data Transfer |
-| 21 | File Transfer Protocol (`FTP`) Command Control |
-| 22 | Secure Shell (`SSH`) Secure Login |
-| 25 | Simple Mail Transfer Protocol (`SMTP`) email delivery |
+| 22 | Secure Shell (`SSH`) & `SFTP` *(replaces legacy plaintext `FTP :20/:21`)* |
+| 25 / 587 | Simple Mail Transfer Protocol (`SMTP`) email relay & submission |
+| 53 | Domain Name System (`DNS`) — `UDP` & `TCP` (`:853` for `DoT`) |
+| 80 | Hypertext Transfer Protocol (`HTTP`) — typically redirects to `:443` |
 
 ----
 
@@ -225,27 +225,28 @@
 
 | Number | Assignment |
 |---|---|
-| 53 | Domain Name System (`DNS`) service |
-| 80 | Hypertext Transfer Protocol (`HTTP`) used in the World Wide Web |
-| 443 | HTTP Secure (`HTTPS`) HTTP over `TLS/SSL` |
+| 443 | `HTTPS` (`HTTP/1.1` & `HTTP/2` over `TCP/TLS`, `HTTP/3` over `UDP/QUIC`) |
+| 3306 / 5432 | Relational Databases (`MySQL` `:3306`, `PostgreSQL` `:5432`) |
+| 6379 | In-Memory Data Store (`Redis` / `Valkey`) |
+| 6443 | `Kubernetes` API Server (`HTTPS`) |
 
 ----
 
 ### DNS
 
 - The **Domain Name System (DNS)** is a hierarchical and decentralized naming system for computers, services, or other resources connected to the Internet or a private network
-- Associates various information with domain names assigned to each of the participating entities
+- Modern DNS supports encrypted transport via **DNS over HTTPS (`DoH`)** and **DNS over TLS (`DoT`)**, plus **DNSSEC** cryptographic record signing
 
 ----
 
 ### DNS
 
-- For example
-  - `A record`: associate a DNS name to an IPv4
-  - `AAAA record`: associate a DNS name to an IPv6
-  - `CNAME record`: Alias of one name to another
-  - `NS record`: Delegates a DNS zone to use the given authoritative name servers
-  - `MX record`: Maps a domain name to a list of message transfer agents for that domain
+- Common DNS record types:
+  - `A` / `AAAA`: Maps a domain name to an `IPv4` (`A`) or `IPv6` (`AAAA`) address
+  - `CNAME`: Alias of one domain name to another canonical name
+  - `NS`: Delegates a DNS zone to authoritative name servers
+  - `MX`: Maps a domain name to mail exchange servers
+  - `TXT` / `SRV` / `CAA`: Domain verification (`SPF`/`DKIM`), service discovery, and Certificate Authority authorization
 
 <p class="ref-link"><a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types" target="_blank">https://en.wikipedia.org/wiki/List_of_DNS_record_types</a></p>
 
@@ -253,9 +254,9 @@
 
 ### TLS / HTTPS & mTLS
 
-- **Transport Layer Security (`TLS`)** provides encryption, data integrity, and authentication in transit
-- **Standard TLS (One-Way)**: The client verifies the server's `X.509` certificate against a trusted **Certificate Authority (`CA`)** before negotiating a fast symmetric session key (`AES-GCM` / `ChaCha20`)
-- **Mutual TLS (`mTLS`)**: Both client and server present and verify certificates — the foundation of **Zero Trust** service-to-service security
+- **Transport Layer Security (`TLS 1.3`)** provides encryption, integrity, and authentication in transit (`SSL` and `TLS 1.0/1.1` are deprecated)
+- **Standard TLS (One-Way)**: Client verifies the server's `X.509` certificate (automated via `Let's Encrypt` / `ACME`) and negotiates ephemeral forward-secret keys (`ECDHE` + `AES-GCM` / `ChaCha20-Poly1305`) in `1-RTT`
+- **Mutual TLS (`mTLS`)**: Both client and server verify short-lived certificates (`SPIFFE` / internal `CA`) — the foundation of **Zero Trust** service-to-service security
 
 ----
 
@@ -267,22 +268,10 @@
 
 ### Firewalls
 
-- A **firewall** is a network security system that monitors and controls incoming and outgoing network traffic based on predetermined security rules
-- Operates on `layer 4` of the OSI model
-
-----
-
-### Firewalls
-
-- **Packet filter**
-  - The first reported type of network firewall is called a packet filter, which inspects packets transferred between computers. The firewall maintains an access control list which dictates what packets will be looked at and what action should be applied
-
-----
-
-### Firewalls
-
-- **Connection tracking**
-  - Second-generation firewalls perform the work of their first-generation predecessors but also maintain knowledge of specific conversations between endpoints by remembering which port number the two IP addresses are using
+- A **firewall** enforces security policies by filtering incoming and outgoing network traffic
+- **Stateless Packet Filters (`L3/L4`)**: Inspect individual packet headers (`Src/Dst IP`, `Protocol`, `Port`) against static Access Control Lists *(e.g., Cloud Subnet `NACLs`)*
+- **Stateful Firewalls (`L4`)**: Track active connections (`conntrack`) so return traffic for established sessions is automatically permitted *(e.g., Cloud `Security Groups`, Linux `nftables`)*
+- **Next-Generation & eBPF Firewalls (`L3–L7`)**: Deep packet inspection, application/identity awareness, and kernel-level `eBPF` policy enforcement *(replacing legacy `iptables`)*
 
 ----
 
@@ -294,8 +283,8 @@
 
 ### DMZ
 
-- A **DMZ** is a physical or logical subnetwork that contains and exposes an organization's external-facing services to an untrusted, usually larger, network such as the Internet
-- Add an additional layer of security to an organization's local area network (`LAN`)
+- A **DMZ (Demilitarized Zone)** is an isolated perimeter subnet that exposes public-facing gateways (`Reverse Proxies`, `Load Balancers`, `API Gateways`) to untrusted networks (`Internet`)
+- Prevents direct external access to internal private subnets (`Application Tiers`, `Databases`)
 
 ----
 
@@ -311,21 +300,14 @@
 
 ----
 
-### VPN / MPLS
+### VPN, WireGuard & Cloud Interconnect
 
-- A **virtual private network (VPN)** extends a private network across a public network and enables users to send and receive data across shared or public networks
-- The benefits of a VPN include increases in functionality, security, and management of the private network
-- Operates on `layer 2` or `3`
-
-----
-
-### VPN / MPLS
-
-- **Multi-Protocol Label Switching (MPLS)** often overlays VPNs, often with quality-of-service control over a trusted delivery network
-- `L2TP` which is a standards-based replacement, and a compromise taking the good features from each, for two proprietary VPN protocols
+- A **Virtual Private Network (`VPN`)** creates encrypted tunnels (`Layer 3`) across untrusted public networks to connect remote users or branch/cloud networks
+- **Modern VPN Protocols**: **`WireGuard`** (modern, high-speed cryptographic tunnel in the Linux kernel) and **`IPsec` (`IKEv2`)** have replaced legacy protocols like `PPTP` and `L2TP`
+- **Enterprise & Cloud Connectivity**: Dedicated private links (**`AWS Direct Connect`**, **`GCP Cloud Interconnect`**, **`SD-WAN`**) and **Zero Trust Network Access (`ZTNA` / `Tailscale` / `BeyondCorp`)** replace traditional `MPLS` and perimeter VPNs
 
 ----
 
-### VPN / MPLS
+### VPN, WireGuard & Cloud Interconnect
 
 ![VPN](img/vpn.svg)

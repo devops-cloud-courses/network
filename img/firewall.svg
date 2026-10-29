@@ -100,6 +100,6 @@
   </g>
 
   <!-- Firewall Title Pill -->
-  <rect x="405" y="388" width="130" height="32" rx="16" fill="#0f172a"/>
-  <text x="470" y="409" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">FIREWALL (L4)</text>
+  <rect x="395" y="388" width="150" height="32" rx="16" fill="#0f172a"/>
+  <text x="470" y="409" text-anchor="middle" font-size="13.5" font-weight="700" fill="#ffffff">FIREWALL (L3–L7)</text>
 </svg>

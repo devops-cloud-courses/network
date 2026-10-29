@@ -50,9 +50,9 @@
 
     <!-- Step 3: Encrypted Tunnel -->
     <rect x="64" y="302" width="364" height="90" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
-    <text x="246" y="330" text-anchor="middle" font-size="13.5" font-weight="800" fill="#0f172a">3. Symmetric Encrypted Session (AES-GCM)</text>
+    <text x="246" y="330" text-anchor="middle" font-size="13" font-weight="800" fill="#0f172a">3. TLS 1.3 Session (ECDHE + AES-GCM / ChaCha20)</text>
     <text x="246" y="354" text-anchor="middle" font-size="12" fill="#475569">Used for: <tspan font-weight="700" fill="#2563eb">Browsers → Public Websites / APIs</tspan></text>
-    <text x="246" y="374" text-anchor="middle" font-size="11.5" fill="#64748b">(Client auth handled at L7 via JWT / OAuth / Cookies)</text>
+    <text x="246" y="374" text-anchor="middle" font-size="11.5" fill="#64748b">(Client auth handled at L7 via OIDC / JWT / Passkeys)</text>
   </g>
 
   <!-- Right Panel: Mutual TLS (mTLS) -->

@@ -42,16 +42,16 @@
     <rect x="620" y="36" width="260" height="44" rx="18" fill="#fffbeb"/>
     <text x="750" y="64" text-anchor="middle" font-size="16" font-weight="800" fill="#b45309">DMZ (Demilitarized Zone)</text>
 
-    <!-- WWW, SMTP, DNS Servers -->
+    <!-- Reverse Proxy, API GW, DNS Servers -->
     <rect x="638" y="100" width="68" height="72" rx="10" fill="#fffbeb" stroke="#fde68a"/>
-    <rect x="656" y="112" width="32" height="26" rx="4" fill="#d97706"/>
-    <text x="672" y="129" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff">HTTP</text>
-    <text x="672" y="158" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#92400e">WWW</text>
+    <rect x="654" y="112" width="36" height="26" rx="4" fill="#d97706"/>
+    <text x="672" y="129" text-anchor="middle" font-size="9.5" font-weight="700" fill="#ffffff">HTTPS</text>
+    <text x="672" y="158" text-anchor="middle" font-size="11.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#92400e">Proxy</text>
 
     <rect x="716" y="100" width="68" height="72" rx="10" fill="#fffbeb" stroke="#fde68a"/>
     <rect x="734" y="112" width="32" height="26" rx="4" fill="#d97706"/>
-    <text x="750" y="129" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff">MAIL</text>
-    <text x="750" y="158" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#92400e">SMTP</text>
+    <text x="750" y="129" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff">:443</text>
+    <text x="750" y="158" text-anchor="middle" font-size="11.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#92400e">API GW</text>
 
     <rect x="794" y="100" width="68" height="72" rx="10" fill="#fffbeb" stroke="#fde68a"/>
     <rect x="812" y="112" width="32" height="26" rx="4" fill="#d97706"/>

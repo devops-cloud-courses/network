@@ -44,16 +44,16 @@
     <text x="480" y="103" text-anchor="middle" font-size="16" font-weight="800" fill="#b45309">DMZ</text>
 
     <rect x="415" y="135" width="130" height="52" rx="10" fill="#fffbeb" stroke="#fde68a"/>
-    <text x="480" y="160" text-anchor="middle" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#92400e">WWW Server</text>
-    <text x="480" y="177" text-anchor="middle" font-size="11" fill="#b45309">HTTP / HTTPS</text>
+    <text x="480" y="160" text-anchor="middle" font-size="13.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#92400e">Reverse Proxy</text>
+    <text x="480" y="177" text-anchor="middle" font-size="11" fill="#b45309">HTTPS / TLS 1.3</text>
 
     <rect x="415" y="200" width="130" height="52" rx="10" fill="#fffbeb" stroke="#fde68a"/>
-    <text x="480" y="225" text-anchor="middle" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#92400e">SMTP Server</text>
-    <text x="480" y="242" text-anchor="middle" font-size="11" fill="#b45309">Mail Relay</text>
+    <text x="480" y="225" text-anchor="middle" font-size="13.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#92400e">API Gateway</text>
+    <text x="480" y="242" text-anchor="middle" font-size="11" fill="#b45309">Ingress / WAF</text>
 
     <rect x="415" y="265" width="130" height="52" rx="10" fill="#fffbeb" stroke="#fde68a"/>
-    <text x="480" y="290" text-anchor="middle" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#92400e">DNS Server</text>
-    <text x="480" y="307" text-anchor="middle" font-size="11" fill="#b45309">Public Resolver</text>
+    <text x="480" y="290" text-anchor="middle" font-size="13.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#92400e">Public DNS</text>
+    <text x="480" y="307" text-anchor="middle" font-size="11" fill="#b45309">Edge Resolver</text>
 
     <text x="480" y="345" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" fill="#d97706">Isolated Buffer Zone</text>
   </g>
