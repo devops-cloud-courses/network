@@ -3,6 +3,7 @@
 An interactive presentation on **Computer Networking, Cloud Architecture, Kubernetes Networking, and Production Troubleshooting**, powered by [Reveal.js 6.0.2](https://revealjs.com/).
 
 * **Live Presentation:** [https://devops-cloud-courses.github.io/network](https://devops-cloud-courses.github.io/network)
+* **Download PDF (Latest Release):** [network-in-a-nutshell.pdf](https://github.com/devops-cloud-courses/network/releases/latest/download/network-in-a-nutshell.pdf)
 * **PDF Export View:** [https://devops-cloud-courses.github.io/network/?print-pdf&pdfSeparateFragments=false](https://devops-cloud-courses.github.io/network/?print-pdf&pdfSeparateFragments=false)
 
 ---
